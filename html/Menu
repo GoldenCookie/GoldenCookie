@@ -33,7 +33,8 @@
 			</button>
 		</div>
 	</body>
-	<style>
+</html>
+<style>
 	#titleBox
 	{
 		background-color: #ccccff;
@@ -70,5 +71,4 @@
 	{
 		clear:both;
 	}
-	</style>
-</html>
+</style>
