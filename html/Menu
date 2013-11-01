@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link type = "text/css" rel="MainPage" href="P:\ICS4U\HTMLWorkspace\MainPage.css"/>
+		<title>3 Musketeers</title>
+	</head>
+	<body>
+		<div id="titleBox">
+			<h1 id="title">3 Musketeers</h1>
+		</div>
+		<div id="iconBox">
+			<a href= "http://www.google.ca/">
+				<button id="penguinIcon">
+					<p>penguin</p>
+				</button>
+			</a>
+			<a href= "http://www.google.ca/">
+				<button id="eagleIcon">
+					<p>eagle</p>
+				</button>
+			</a>
+			<a href= "http://www.google.ca/">
+				<button id="catIcon">
+					<p>cat</p>
+				</button>
+			</a>
+		</div>
+		<div id="optionsBox">
+			<button id="highscoreBox">
+				<p>highscore</p>
+			</button>
+			<button id="helpBox">
+				<p>help</p>
+			</button>
+		</div>
+	</body>
+	<style>
+	#titleBox
+	{
+		background-color: #ccccff;
+		height = 50px;
+		width = 100%;
+	}
+	#title
+	{
+		font-size: 24px;
+		color: #ffffcc;
+		text-align: center;
+	}
+	#iconBox
+	{
+		height: 500px;
+		width: 100%;
+		background-color:#aaaaff;
+		clear:both;
+	}
+	/*This allows all the buttons for the games to be edited at once*/
+	#iconBox button
+	{
+		background-color: #ffbbbb;
+	}
+	#penguinIcon
+	{
+		float:left;
+	}
+	#eagleIcon
+	{
+		float:right;
+	}
+	#catIcon
+	{
+		clear:both;
+	}
+	</style>
+</html>
