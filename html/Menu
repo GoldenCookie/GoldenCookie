@@ -1,74 +1,86 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>3 Musketeers</title>
-	</head>
-	<body>
-		<div id="titleBox">
-			<h1 id="title">3 Musketeers</h1>
-		</div>
-		<div id="iconBox">
-			<a href= "http://www.google.ca/">
-				<button id="penguinIcon">
-					<p>penguin</p>
-				</button>
-			</a>
-			<a href= "http://www.google.ca/">
-				<button id="eagleIcon">
-					<p>eagle</p>
-				</button>
-			</a>
-			<a href= "http://www.google.ca/">
-				<button id="catIcon">
-					<p>cat</p>
-				</button>
-			</a>
-		</div>
-		<div id="optionsBox">
-			<button id="highscoreBox">
-				<p>highscore</p>
-			</button>
-			<button id="helpBox">
-				<p>help</p>
-			</button>
-		</div>
-	</body>
+        <head>
+                <title>3 Musketeers</title>
+        </head>
+        <body>
+                <div id="titleBox">
+                        <h1 id="title">3 Musketeers</h1>
+						<h2 id="info">(Click one to begin)</h2>
+                </div>
+                <div id="iconBox">
+                        <a href= "http://www.google.ca/">
+                                <button id="penguinIcon">
+                                        <p>Penguin</p>
+                                </button>
+                        </a>
+                        <a href= "http://www.google.ca/">
+                                <button id="eagleIcon">
+                                        <p>Eagle</p>
+                                </button>
+                        </a>
+                        <a href= "http://www.google.ca/">
+                                <button id="catIcon">
+                                        <p>Cat</p>
+                                </button>
+                        </a>
+                </div>
+                <div id="optionsBox">
+                        <button id="highscoreBox">
+                                <p>Highscore</p>
+                        </button>
+                        <button id="helpBox">
+                                <p>Help</p>
+                        </button>
+                </div>
+        </body>
 </html>
 <style>
 	#titleBox
 	{
-		background-color: #ccccff;
-		height = 50px;
-		width = 100%;
+			background-color: #FFFFFF;
+			height = 100px;
+			width = 100%;
 	}
 	#title
 	{
-		font-size: 24px;
-		color: #ffffcc;
-		text-align: center;
+			font-size: 50px;
+			color: #000000;
+			text-align: center;
+	}
+	#info
+	{
+			font-size:35px;
+			color:#000000;
+			text-align:center;
 	}
 	#iconBox
 	{
-		height: 500px;
-		width: 100%;
-		background-color:#aaaaff;
-		clear:both;
+			height: 500px;
+			width: 100%;
+			background-color:#0099FF;
+			clear:both;
 	}
 	/*This allows all the buttons for the games to be edited at once*/
 	#iconBox button
 	{
-		background-color: #ffbbbb;
+			font-size:30px;
+			background-color: #FFEF3D;
+			height:100px;
+			width:100%;
+			align:center;
+			margin-top: 40px;
 	}
 	#penguinIcon
 	{
-		float:left;
+			float:left;
 	}
 	#eagleIcon
 	{
-		float:right;
+			float:right;
 	}
 	#catIcon
 	{
-		clear:both;
+			clear:both;
 	}
 </style>
