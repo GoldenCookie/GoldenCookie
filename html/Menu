@@ -9,17 +9,17 @@
 						<h2 id="info">(Click one to begin)</h2>
                 </div>
                 <div id="iconBox">
-                        <a href= "http://www.google.ca/">
+                        <a href= "PenguinGame.html">
                                 <button id="penguinIcon">
                                         <p>Penguin</p>
                                 </button>
                         </a>
-                        <a href= "http://www.google.ca/">
+                        <a href= "EagleGame.html">
                                 <button id="eagleIcon">
                                         <p>Eagle</p>
                                 </button>
                         </a>
-                        <a href= "http://www.google.ca/">
+                        <a href= "CatGame.html">
                                 <button id="catIcon">
                                         <p>Cat</p>
                                 </button>
