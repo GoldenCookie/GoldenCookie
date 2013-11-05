@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Eagle Game</title>
+        </head>
+        <body>
+                <div id="titleBox">
+                        <h1 id="title">Eagle Game</h1>
+                </div>
+                <div id="flightArea">
+						
+                        
+                </div>
+               
+        </body>
+</html>
+<style>
+	#titleBox
+	{
+			background-color: #FFFFFF;
+			height = 100px;
+			width = 100%;
+	}
+	#title
+	{
+			font-size: 50px;
+			color: #000000;
+			text-align: center;
+	}
+	
+	#flightArea
+	{
+			height: 500px;
+			width: 100%;
+			background-color:#FFFFFF;
+			border: 5px solid black;
+			clear:both;
+	}
+	
+	
+</style>
