@@ -1,74 +1,86 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Penguin Game</title>
-	</head>
-	<body>
-		<div id= flightBox>
-			<p class = delete>FLIGHTLESS BIRD</p>
-		</div>
-		<div id = questionBox>
-			<div id = numbers>
-				<div>
-					<button class = number>1</button>
-					<button class = number>2</button>
-					<button class = number>3</button>
-				</div>
-				<div>
-					<button class = number>4</button>
-					<button class = number>5</button>
-					<button class = number>6</button>
-				</div>
-				<div>
-					<button class = number>7</button>
-					<button class = number>8</button>
-					<button class = number>9</button>
-				</div>
-			</div>
-			<div id = answerBox>
-				<textarea></textarea>
-			<div>
-			<p class = delete>MATH</p>
-		</div>
-	</body>
+        <head>
+                <title>Penguin Game</title>
+        </head>
+        <body>
+                <div id= flightBox>
+                        <p class = delete>FLIGHTLESS BIRD</p>
+                </div>
+                <div id = questionBox>
+					<div id = numbers>
+							<div>
+									<button class = number>1</button>
+									<button class = number>2</button>
+									<button class = number>3</button>
+							</div>
+							<div>
+									<button class = number>4</button>
+									<button class = number>5</button>
+									<button class = number>6</button>
+							</div>
+							<div>
+									<button class = number>7</button>
+									<button class = number>8</button>
+									<button class = number>9</button>
+							</div>
+					</div>
+					<div id = answerBox>
+						<textarea></textarea>
+						<button id = answerButton>Answer</button>
+					</div>
+					
+                </div>
+        </body>
 </html>
 <style>
 div
 {
-	border: 2px solid #000000;
-	border-radius: 0.25em;
+       
 }
 #flightBox
 {
-	background-color:#80dfff;
-	height:20em;
+        background-color:#80dfff;
+        height:20em;
+		border: 2px solid #000000;
+        border-radius: 0.25em;
 }
 #questionBox
 {
-	background-color:#aaaaaa;
-	height:30em;
+        background-color:#aaaaaa;
+        height:30em;
+		border: 2px solid #000000;
+        border-radius: 0.25em;
 }
 .delete
 {
-	text-align: center;
+        text-align: center;
 }
 .number
 {
-	height:8em;
-	width:8em;
+        height:8em;
+        width:8em;
 }
 #numbers
 {
-	background-color: #3333ff;
-	position: fixed;
-	margin-left: 15em;
-	margin-top: 5em;
+        background-color: #3333ff;
+        position: fixed;
+        margin-left: 15em;
+        margin-top: 5em;
+		border: 2px solid #000000;
+        border-radius: 0.25em;
 }
 #answerBox
 {
-	height = 1.5em;
-	width = 5em;
-	position: fixed;
-	margin-lef
+        height : 2em;
+        width : 14em;
+        position: fixed;
+        margin-left:40em;
+		margin-top:10em;
+}
+#answerButton
+{
+        height:2em;
+        width:14em;
 }
 </style>
