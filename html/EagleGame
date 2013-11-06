@@ -8,12 +8,14 @@
                         <h1 id="title">Eagle Game</h1>
                 </div>
                 <div id="flightArea">
-						
-                        
+						<div id="eagle";>
+						 <p onkeypress=moveEagle>EAGLE</p>	
+						</div>
                 </div>
                
         </body>
 </html>
+
 <style>
 	#titleBox
 	{
@@ -23,7 +25,7 @@
 	}
 	#title
 	{
-			font-size: 50px;
+			font-size: 20px;
 			color: #000000;
 			text-align: center;
 	}
@@ -36,6 +38,40 @@
 			border: 5px solid black;
 			clear:both;
 	}
+	#eagle
+	{
+			position:x,y;
+			margin-top: 20px;
+			height: 70px;
+			width: 70px;
+			border-radius: 100%;
+			border: 2px solid red;
+	
+	}
+	div p
+	{
+			position: x,y;
+			margin-top: 25px;
+			font-size: 12px;
+			text-align:center;
+
+	}
 	
 	
 </style>
+
+<script>
+var x =100;
+var y=100;
+
+function moveEagle(e)
+{
+ if (e.keycode===up)
+ {
+	x+=10;
+	position:(x,y)
+ }
+
+}
+
+</script>
