@@ -8,16 +8,27 @@
 			<p class = delete>FLIGHTLESS BIRD</p>
 		</div>
 		<div id = questionBox>
+			<div id = numbers>
+				<div>
+					<button class = number>1</button>
+					<button class = number>2</button>
+					<button class = number>3</button>
+				</div>
+				<div>
+					<button class = number>4</button>
+					<button class = number>5</button>
+					<button class = number>6</button>
+				</div>
+				<div>
+					<button class = number>7</button>
+					<button class = number>8</button>
+					<button class = number>9</button>
+				</div>
+			</div>
+			<div id = answerBox>
+				<textarea></textarea>
+			<div>
 			<p class = delete>MATH</p>
-			<button class = number>1</button>
-			<button class = number>2</button>
-			<button class = number>3</button>
-			<button class = number>4</button>
-			<button class = number>5</button>
-			<button class = number>6</button>
-			<button class = number>7</button>
-			<button class = number>8</button>
-			<button class = number>9</button>
 		</div>
 	</body>
 </html>
@@ -40,5 +51,24 @@ div
 .delete
 {
 	text-align: center;
+}
+.number
+{
+	height:8em;
+	width:8em;
+}
+#numbers
+{
+	background-color: #3333ff;
+	position: fixed;
+	margin-left: 15em;
+	margin-top: 5em;
+}
+#answerBox
+{
+	height = 1.5em;
+	width = 5em;
+	position: fixed;
+	margin-lef
 }
 </style>
