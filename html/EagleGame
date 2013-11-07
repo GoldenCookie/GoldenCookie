@@ -5,14 +5,39 @@
         </head>
         <body>
                 <div id="titleBox">
+				
+				<a href= "Menu.html">
+                                <button id="Back">
+                                        <p>Back</p>
+                                </button>
+                </a>
+						
                         <h1 id="title">Eagle Game</h1>
+						
+						
                 </div>
                 <div id="flightArea">
 						<div id="eagle";>
-						 <p onkeypress=moveEagle>EAGLE</p>	
+						 <p>EAGLE</p>	
 						</div>
                 </div>
-               
+				
+               <div id = "up">
+						<button class = directionBox>
+                                <p>Up</p>
+                        </button>   
+			   </div>
+			   
+			   <div id ="down">
+					<button class= directionBox>
+                           <p>Down</p>
+                    </button>
+			   </div>
+			   
+			   <div id="back">
+						
+				</div>		
+				
         </body>
 </html>
 
@@ -57,21 +82,15 @@
 
 	}
 	
+	.directionBox
+	{
+		height:7em;
+        width:7em;
+	}
+	
 	
 </style>
 
 <script>
-var x =100;
-var y=100;
-
-function moveEagle(e)
-{
- if (e.keycode===up)
- {
-	x+=10;
-	position:(x,y)
- }
-
-}
 
 </script>
