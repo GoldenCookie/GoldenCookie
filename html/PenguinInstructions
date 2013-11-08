@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Penguin Instructions</title>
+        </head>
+        <body>
+                <div id="titleBox">
+                        <h1 id="title">Penguin Instructions</h1>
+				</div>
+				
+				<div class = information>
+					<p class = text><b>The object of this game is to get the farthest possible WEEEEEEEEE.</b></P>
+				
+				
+				<a href= "PenguinGame.html">
+                                <button id="Back">
+                                        <p>Back</p>
+                                </button>
+                </a>
+               </div>
+        </body>
+</html>
+<style>
+	#titleBox
+	{
+			background-color: #FFFFFF;
+			height = 100px;
+			width = 100%;
+	}
+	#title
+	{
+			font-size: 40px;
+			color: #000000;
+			text-align: center;
+	}
+	.information
+	{
+			background-color:#85F3FF;
+			text-align:left;
+	}
+	.text
+	{
+			
+	}
+	
+</style>
