@@ -11,6 +11,11 @@
                                         <p>Back</p>
                                 </button>
                 </a>
+				<a href= "EagleInstructions.html">
+								<button id ="instructionButton">
+										<p>Instructions</p>
+								</button>
+				</a>
 						
                         <h1 id="title">Eagle Game</h1>
 						
@@ -87,6 +92,13 @@
 		height:7em;
         width:7em;
 	}
+	
+	#instructionButton
+{
+        float:right;
+        height: 4em;
+        width: 8em;
+}
 	
 	
 </style>
