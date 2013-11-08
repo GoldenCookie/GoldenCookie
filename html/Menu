@@ -29,9 +29,11 @@
                         <button id="highscoreBox">
                                 <p>Highscore</p>
                         </button>
+						<a href= "Instructions.html">
                         <button id="helpBox">
                                 <p>Help</p>
                         </button>
+						</a>
                 </div>
         </body>
 </html>
@@ -70,7 +72,9 @@
 			width:100%;
 			align:center;
 			margin-top: 40px;
+			
 	}
+
 	#penguinIcon
 	{
 			float:left;
