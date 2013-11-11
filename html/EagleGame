@@ -5,43 +5,38 @@
         </head>
         <body>
                 <div id="titleBox">
-				
-				<a href= "Menu.html">
-                                <button id="Back">
-                                        <p>Back</p>
-                                </button>
-                </a>
-				<a href= "EagleInstructions.html">
-								<button id ="instructionButton">
-										<p>Instructions</p>
-								</button>
-				</a>
-						
-                        <h1 id="title">Eagle Game</h1>
-						
-						
+			<a href= "Menu.html">
+				<button id="Back">
+					<p>Back</p>
+				</button>
+	                </a>
+			<a href= "EagleInstructions.html">
+				<button id ="instructionButton">
+					<p>Instructions</p>
+				</button>
+			</a>
+	                <h1 id="title">Eagle Game</h1>
                 </div>
                 <div id="flightArea">
-						<div id="eagle";>
-						 <p>EAGLE</p>	
-						</div>
+			<div id="eagle";>
+				<p>EAGLE</p>	
+			</div>
                 </div>
-				
-               <div id = "up">
-						<button class = directionBox>
+		<div id = "up">
+			<button class = directionBox>
                                 <p>Up</p>
                         </button>   
-			   </div>
+		</div>
+			   	   
+		<div id ="down">
+			<button class= directionBox>
+				<p>Down</p>
+                	</button>
+		</div>
 			   
-			   <div id ="down">
-					<button class= directionBox>
-                           <p>Down</p>
-                    </button>
-			   </div>
-			   
-			   <div id="back">
+		<div id="back">
 						
-				</div>		
+		</div>		
 				
         </body>
 </html>
@@ -49,58 +44,53 @@
 <style>
 	#titleBox
 	{
-			background-color: #FFFFFF;
-			height = 100px;
-			width = 100%;
+		background-color: #FFFFFF;
+		height = 6.25em;
+		width = 100%;
 	}
 	#title
 	{
-			font-size: 20px;
-			color: #000000;
-			text-align: center;
+		font-size: 1.25em;
+		color: #000000;
+		text-align: center;
 	}
-	
 	#flightArea
 	{
-			height: 500px;
-			width: 100%;
-			background-color:#FFFFFF;
-			border: 5px solid black;
-			clear:both;
+		height: 31.25em;
+		width: 100%;
+		background-color:#FFFFFF;
+		border: 0.25em solid black;
+		clear:both;
 	}
 	#eagle
 	{
-			position:x,y;
-			margin-top: 20px;
-			height: 70px;
-			width: 70px;
-			border-radius: 100%;
-			border: 2px solid red;
-	
+		position:x,y;
+		margin-top: 1.25px;
+		height: 4.375em;
+		width: 4.375em;
+		border-radius: 100%;
+		border: 0.125em solid red;
 	}
 	div p
 	{
-			position: x,y;
-			margin-top: 25px;
-			font-size: 12px;
-			text-align:center;
+		position: x,y;
+		margin-top: 1.5em;
+		font-size: 0.75em;
+		text-align:center;
 
 	}
-	
 	.directionBox
 	{
 		height:7em;
-        width:7em;
+        	width:7em;
 	}
 	
 	#instructionButton
-{
-        float:right;
-        height: 4em;
-        width: 8em;
-}
-	
-	
+	{
+	       float:right;
+	       height: 4em;
+	       width: 8em;
+	}
 </style>
 
 <script>
