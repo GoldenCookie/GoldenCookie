@@ -26,10 +26,12 @@
                         </a>
                 </div>
                 <div id="optionsBox">
+						<a href ="HighScores.html">
                         <button id="highscoreBox">
                                 <p>Highscore</p>
                         </button>
-						<a href= "Instructions.html">
+						</a>
+						<a href="Instructions.html">
                         <button id="helpBox">
                                 <p>Help</p>
                         </button>
