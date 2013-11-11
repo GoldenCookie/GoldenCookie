@@ -5,46 +5,40 @@
         </head>
         <body>
                 <div id= flightBox>
-				<a href= "Menu.html">
-                                <button id="Back">
-                                        <p>Back</p>
-                                </button>
-                </a>
-				
-				<a href= "PenguinInstructions.html">
-								<button id ="instructionButton">
-										<p>Instructions</p>
-								</button>
-				</a>
-
-				
-                        <p class = delete>FLIGHTLESS BIRD</p>
-						
+			<a href= "Menu.html">
+	                        <button id="Back">
+	                                <p>Back</p>
+	                        </button>
+			</a>
+			<a href= "PenguinInstructions.html">
+				<button id ="instructionButton">
+						<p>Instructions</p>
+				</button>
+			</a>
+                	<p class = delete>FLIGHTLESS BIRD</p>
                 </div>
                 <div id = questionBox>
-					<div id = numbers>
-							<div>
-									<button class = number>1</button>
-									<button class = number>2</button>
-									<button class = number>3</button>
-							</div>
-							<div>
-									<button class = number>4</button>
-									<button class = number>5</button>
-									<button class = number>6</button>
-							</div>
-							<div>
-									<button class = number>7</button>
-									<button class = number>8</button>
-									<button class = number>9</button>
-							</div>
-							
-					</div>
-					<div id = answerBox>
-						<textarea></textarea>
-						<button id = answerButton>Answer</button>
-					</div>
-					
+			<div id = numbers>
+				<div>
+					<button class = number>1</button>
+					<button class = number>2</button>
+					<button class = number>3</button>
+				</div>
+				<div>
+					<button class = number>4</button>
+					<button class = number>5</button>
+					<button class = number>6</button>
+				</div>
+				<div>
+					<button class = number>7</button>
+					<button class = number>8</button>
+					<button class = number>9</button>
+				</div>
+			</div>
+			<div id = answerBox>
+				<textarea></textarea>
+				<button id = answerButton>Answer</button>
+			</div>
                 </div>
         </body>
 </html>
@@ -57,21 +51,21 @@ div
 {
         background-color:#80dfff;
         height:20em;
-		border: 2px solid #000000;
+	border: 0.125em solid #000000;
         border-radius: 0.25em;
 }
 #questionBox
 {
         background-color:#aaaaaa;
         height:30em;
-		border: 2px solid #000000;
+	border: 0.125em solid #000000;
         border-radius: 0.25em;
 }
 .delete
 {
-		font-size: 20px;
-		color: #000000;
-		text-align: center;
+	font-size: 1.25em;
+	color: #000000;
+	text-align: center;
 }
 .number
 {
@@ -84,7 +78,7 @@ div
         position: fixed;
         margin-left: 15em;
         margin-top: 5em;
-		border: 2px solid #000000;
+	border: 0.125em solid #000000;
         border-radius: 0.25em;
 }
 #answerBox
@@ -93,7 +87,7 @@ div
         width : 14em;
         position: fixed;
         margin-left:40em;
-		margin-top:10em;
+	margin-top:10em;
 }
 #answerButton
 {
