@@ -5,45 +5,38 @@
         </head>
         <body>
                 <div id="titleBox">
-                        <h1 id="title">High Scores</h1>
-				</div>
-				
-				<div class = information>
-					<table>
-						<tr>
-						<td>Penguin Game</td>
-						<td>Name:</td>
-						<td>[HIGHSCORE HERE]</td>
-						</tr>
-						
-						<tr>
-						<td>Eagle Game</td>
-							<td>Name:</td>
-						<td>[HIGHSCORE HERE]</td>
-						</tr>
-						
-						
-						<tr>
-						<td>Cat Game</td>
-							<td>Name:</td>
-						<td>[HIGHSCORE HERE]</td>
-						</tr>
-					
-					<table>
-				
-				
-				<a href= "Menu.html">
-                                <button id="Back">
-                                        <p>Back</p>
-                                </button>
-                </a>
-               </div>
+                	<h1 id="title">High Scores</h1>
+		</div>
+		<div class = information>
+			<table>
+				<tr>
+					<td>Penguin Game</td>
+					<td>Name:</td>
+					<td>[HIGHSCORE HERE]</td>
+				</tr>
+				<tr>
+					<td>Eagle Game</td>
+					<td>Name:</td>
+					<td>[HIGHSCORE HERE]</td>
+				</tr>
+				<tr>
+					<td>Cat Game</td>
+					<td>Name:</td>
+					<td>[HIGHSCORE HERE]</td>
+				</tr>
+			<table>
+			<a href= "Menu.html">
+		                <button id="Back">
+		                        <p>Back</p>
+		                </button>
+        		</a>
+               	</div>
         </body>
 </html>
 <style>
 	table, td
 	{
-	border:.16em solid black;
+	border:0.125em solid black;
 	width:100%;
 	}
 
@@ -62,12 +55,12 @@
 	#titleBox
 	{
 			background-color: #FFFFFF;
-			height = 100px;
+			height = 6.25em;
 			width = 100%;
 	}
 	#title
 	{
-			font-size: 40px;
+			font-size: 2.5em;
 			color: #000000;
 			text-align: center;
 	}
