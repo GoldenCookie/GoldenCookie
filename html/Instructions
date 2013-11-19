@@ -4,23 +4,30 @@
                 <title>Instructions</title>
         </head>
         <body>
-                <div id="titleBox">
-                	<h1 id="title">Instructions</h1>
-		</div>
-				
-		<div class = information>
-			<p class = text><b>Penguin:</b> The object of this game is to get a highscore blahblahblah</P>
-			<p class = text><b>Eagle:</b>  The object of this game is to get a highscore blahblahblah</P>
-			<p class = text><b>Cat:</b> The object of this game is to get a highscore blahblabhalbh</P>
-			<a href= "Menu.html">
-	                	<button id="Back">
-	                        	<p>Back</p>
-	               		</button>
-	               	</a>
-               	</div>
+        	<div id = mainBox>
+	                <div id="titleBox">
+	                	<h1 id="title">Instructions</h1>
+			</div>
+					
+			<div class = information>
+				<p class = text><b>Penguin:</b> The object of this game is to get a highscore blahblahblah</P>
+				<p class = text><b>Eagle:</b>  The object of this game is to get a highscore blahblahblah</P>
+				<p class = text><b>Cat:</b> The object of this game is to get a highscore blahblabhalbh</P>
+				<a href= "Menu.html">
+		                	<button id="Back">
+		                        	<p>Back</p>
+		               		</button>
+		               	</a>
+	               	</div>
+	       </div>
         </body>
 </html>
 <style>
+	#mainBox
+	{
+		height:600px;
+		width:1024px;
+	}
 	#titleBox
 	{
 		background-color: #FFFFFF;
