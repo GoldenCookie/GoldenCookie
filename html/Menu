@@ -56,7 +56,15 @@
 	{
 			height:100px;
 			width:1024px
-	}	
+	}
+	#highscoreBox
+	{
+			
+	}
+	#helpBox
+	{
+			
+	}
 	
 	
 	/*This allows all the buttons for the games to be edited at once*/
