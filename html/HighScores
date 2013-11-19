@@ -4,33 +4,35 @@
                 <title>High Scores</title>
         </head>
         <body>
-                <div id="titleBox">
-                	<h1 id="title">High Scores</h1>
-		</div>
-		<div class = information>
-			<table>
-				<tr>
-					<td>Penguin Game</td>
-					<td>Name:</td>
-					<td>[HIGHSCORE HERE]</td>
-				</tr>
-				<tr>
-					<td>Eagle Game</td>
-					<td>Name:</td>
-					<td>[HIGHSCORE HERE]</td>
-				</tr>
-				<tr>
-					<td>Cat Game</td>
-					<td>Name:</td>
-					<td>[HIGHSCORE HERE]</td>
-				</tr>
-			<table>
-			<a href= "Menu.html">
-		                <button id="Back">
-		                        <p>Back</p>
-		                </button>
-        		</a>
-               	</div>
+        	<div id=mainBox>
+	                <div id="titleBox">
+	                	<h1 id="title">High Scores</h1>
+			</div>
+			<div class = information>
+				<table>
+					<tr>
+						<td>Penguin Game</td>
+						<td>Name:</td>
+						<td>[HIGHSCORE HERE]</td>
+					</tr>
+					<tr>
+						<td>Eagle Game</td>
+						<td>Name:</td>
+						<td>[HIGHSCORE HERE]</td>
+					</tr>
+					<tr>
+						<td>Cat Game</td>
+						<td>Name:</td>
+						<td>[HIGHSCORE HERE]</td>
+					</tr>
+				<table>
+				<a href= "Menu.html">
+			                <button id="Back">
+			                        <p>Back</p>
+			                </button>
+	        		</a>
+	               	</div>
+	       </div>
         </body>
 </html>
 <style>
