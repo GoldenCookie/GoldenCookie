@@ -4,44 +4,29 @@
                 <title>3 Musketeers</title>
         </head>
         <body>
-                <div id="titleBox">
-                        <h1 id="title">3 Musketeers</h1>
-						<h2 id="info">(Click one to begin)</h2>
-                </div>
-                <div id="iconBox">
-                        <a href= "PenguinGame.html">
-                                <button id="penguinIcon">
-                                        <p>Penguin</p>
-                                </button>
-                        </a>
-                        <a href= "EagleGame.html">
-                                <button id="eagleIcon">
-                                        <p>Eagle</p>
-                                </button>
-                        </a>
-                        <a href= "CatGame.html">
-                                <button id="catIcon">
-                                        <p>Cat</p>
-                                </button>
-                        </a>
-                </div>
-                <div id="optionsBox">
-						<a href ="HighScores.html">
-                        <button id="highscoreBox">
-                                <p>Highscore</p>
-                        </button>
-						</a>
-						
-						<a href="Instructions.html">
-                        <button id="helpBox">
-                                <p>Help</p>
-                        </button>
-						</a>
-                </div>
+        	<div id = mainbox>
+	                <div id="titleBox">
+	                        <h1 id="title">3 Musketeers</h1>
+				<h2 id="info">(Click one to begin)</h2>
+	                </div>
+	                <div id="iconBox">
+	                        <a href= "PenguinGame.html"><button id="penguinIcon"><p>Penguin</p></button></a>
+	                        <a href= "EagleGame.html"><button id="eagleIcon"><p>Eagle</p></button></a>
+	                        <a href= "CatGame.html"><button id="catIcon"><p>Cat</p></button></a>
+	                </div>
+	                <div id="optionsBox">
+				<a href ="HighScores.html"><button id="highscoreBox"><p>Highscore</p></button></a>
+				<a href="Instructions.html"><button id="helpBox"><p>Help</p></button></a>
+	                </div>
+		</div>
         </body>
 </html>
 <style>
-
+	#mainBox
+	{
+		height:600px;
+		width:1024px;
+	}
 	#titleBox
 	{
 			background-color: #FFFFFF;
