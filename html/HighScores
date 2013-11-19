@@ -31,11 +31,16 @@
 			                        <p>Back</p>
 			                </button>
 	        		</a>
-	               	</div>
-	       </div>
+	       		</div>
+		</div>
         </body>
 </html>
 <style>
+	#mainBox
+	{
+		height:600px;
+		width:1024px;
+	}
 	table, td
 	{
 	border:0.125em solid black;
