@@ -4,20 +4,27 @@
                 <title>Penguin Instructions</title>
         </head>
         <body>
-                <div id="titleBox">
-                        <h1 id="title">Penguin Instructions</h1>
+        	<div id=mainbox>
+	                <div id="titleBox">
+	                        <h1 id="title">Penguin Instructions</h1>
+			</div>
+			<div class = information>
+				<p class = text><b>The object of this game is to get the farthest possible WEEEEEEEEE.</b></P>
+				<a href= "PenguinGame.html">
+			                <button id="Back">
+			                        <p>Back</p>
+			                </button>
+			        </a>
+	               	</div>
 		</div>
-		<div class = information>
-			<p class = text><b>The object of this game is to get the farthest possible WEEEEEEEEE.</b></P>
-			<a href= "PenguinGame.html">
-		                <button id="Back">
-		                        <p>Back</p>
-		                </button>
-		        </a>
-               	</div>
         </body>
 </html>
 <style>
+	#mainBox
+	{
+		height:600px;
+		width:1024px;
+	}
 	#titleBox
 	{
 		background-color: #FFFFFF;
