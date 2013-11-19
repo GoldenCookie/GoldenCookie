@@ -56,7 +56,6 @@
 	{
 			height:100px;
 			width:1024px
-			float:right;
 	}	
 	
 	
@@ -81,6 +80,7 @@
 	#eagleIcon
 	{
 			height: 120px;
+			float:right;
 	}
 	#catIcon
 	{
