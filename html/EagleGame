@@ -28,6 +28,8 @@
 				<button id = answerButton>Answer</button>
 				<textarea id = thisGuy></textarea>
 				<textarea id = thatGuy></textarea>
+				<button id = upButton>Up</button>
+				<button id = downButton>Down</button>
 			</div>
                 </div>
         </body>
@@ -88,5 +90,20 @@
 	height:3em;
 	width:11.5em;
 	margin-top:4em;
+}
+#upButton
+{
+	position: absolute;
+	margin-left:12em;
+	height:8em;
+	width:15.5em;
+}
+#downButton
+{
+	position: absolute;
+	margin-left:12em;
+	height:8em;
+	width:15.5em;
+	margin-top:8em;
 }
 </style>
