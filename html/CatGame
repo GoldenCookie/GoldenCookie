@@ -28,6 +28,9 @@
 				<button id = answerButton>Answer</button>
 				<textarea id = thisGuy></textarea>
 				<textarea id = thatGuy></textarea>
+				<button id = leftButton>Left</button>
+				<button id = rightButton>Right</button>
+				<button id = fireButton>Fire</button>
 			</div>
                 </div>
         </body>
@@ -88,5 +91,27 @@
 	height:3em;
 	width:11.5em;
 	margin-top:4em;
+}
+#leftButton
+{
+	position: absolute;
+	margin-left:12em;
+	height:8em;
+	width:7.75em;
+}
+#rightButton
+{
+	position: absolute;
+	margin-left:19.75em;
+	height:8em;
+	width:7.75em;
+}
+#fireButton
+{
+	position: absolute;
+	margin-left:12em;
+	height:8em;
+	width:15.5em;
+	margin-top:8em;
 }
 </style>
