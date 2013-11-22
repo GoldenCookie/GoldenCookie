@@ -35,58 +35,58 @@
 <style>
 #mainBox
 {
-	background-color:#80dfff;
-	height:388px;
-	width:1024px;
-	border: 0.125em solid #000000;
-	border-radius: 0.25em;
+        background-color:#80dfff;
+        height:388px;
+        width:1024px;
+        border: 2px solid #000000;
+        border-radius: 4px;
 }
 #questionBox
 {
-	background-color:#aaaaaa;
-	height:212px;
-	width:1024px;
-	border: 0.125em solid #000000;
-	border-radius: 0.25em;
+        background-color:#aaaaaa;
+        height:212px;
+        width:1024px;
+        border: 2px solid #000000;
+        border-radius: 4px;
 }
 .number
 {
-	height:8em;
-	width:8em;
+        height:128px;
+        width:128px;
 }
 #instructionButton
 {
-	float:right;
-	height: 4em;
-	width: 8em;
+        float:right;
+        height: 64px;
+        width: 128px;
 }
 #deleteButton
 {
-	height:16em;
-	width:8em;
+        height:256px;
+        width:128px;
 }
 #answerArea
 {
-	width:16em;
+        width:256px;
 }
 #answerButton
 {
-	margin-top:8em;
-	position:absolute;
-	height:8em;
-	width:12em;
+        margin-top:128px;
+        position:absolute;
+        height:128px;
+        width:192px;
 }
 #thisGuy
 {
-	position:absolute;
-	height:3em;
-	width:11.5em;
+        position:absolute;
+        height:48px;
+        width:184px;
 }
 #thatGuy
 {
-	position:absolute;
-	height:3em;
-	width:11.5em;
-	margin-top:4em;
+        position:absolute;
+        height:48px;
+        width:184px;
+        margin-top:64px;
 }
 </style>
