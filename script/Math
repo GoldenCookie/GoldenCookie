@@ -1,0 +1,73 @@
+
+<head>
+<script>
+
+var x;
+var y;
+var answer;
+
+var xQuestion;
+var yQuestion;
+
+var clientAnswer
+
+function createAnswer()
+{
+	x=Math.round(Math.random()*20);
+	y=Math.round(Math.random()*20);
+	answer=x+y;
+	distimes.innerHTML=answer;
+
+}
+
+function createQuestion()
+{
+	xQuestion=Math.round(Math.random()*10);
+	displus.innerHTML=xQuestion;
+	yQuestion = answer - xQuestion;
+	BRO.innerHTML=yQuestion;
+
+}
+
+function checkMath()
+{
+	clientAnswer = document.getElementById("Bob").value;
+	if (answer===Number(clientAnswer))
+	{
+		alert('CORRECT');
+	}
+	else 
+	{
+		alert('INCORRECT');
+	}
+
+}
+
+
+
+</script>
+
+</head>
+
+<body onLoad = "createAnswer()", "createQuestion()" , "checkMath()">
+<table border="1" cellpadding="10" cellspacing="0" bordercolor="#000000" bgcolor="#C0C0C0"><tr><td>
+<p><b>Addition<b/></p>
+<p id=distimes></p>
+</td></tr></table>
+
+<p><input type="button" value="Generate Answer" onclick=createAnswer()></p>
+
+<p><input type="button" value="Generate Question" onclick=createQuestion()></p>
+<table border="1" cellpadding="10" cellspacing="0" bordercolor="#000000" bgcolor="#C0C0C0"><tr><td>
+<p id=displus></p>
+<p id=BRO></p>
+</td></tr></table>
+
+
+<p>Answer=<input id = "Bob" maxlength=3 type=number></p>
+<p><input type="button" value="CHECK" onclick=checkMath()></p>
+
+
+
+</body>
+</html> 
