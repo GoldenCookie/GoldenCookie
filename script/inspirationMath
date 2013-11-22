@@ -1,0 +1,38 @@
+<HEAD>
+
+<script>
+var xnum;
+var ynum;
+function domath(){
+xnum=Math.round(Math.random()*41)- 20;
+ynum=Math.round(Math.random()*41)- 20;
+distimes.innerHTML='X x Y = '+ xnum * ynum;
+displus.innerHTML=(ynum - -xnum);
+}
+function checkmath() {
+if ((xanswer.value / 1==xnum / 1 & yanswer.value / 1==ynum / 1) | (xanswer.value / 1==ynum / 1 & yanswer.value / 1==xnum / 1))
+{correct.innerHTML='Correct!';}else{correct.innerHTML='Incorrect';}
+}
+</script>
+
+</HEAD>
+
+<!-- STEP TWO: Insert the onLoad event handler into your BODY tag  -->
+
+<BODY onLoad="domath()">
+
+<!-- STEP THREE: Copy this code into the BODY of your HTML document  -->
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://www.javascriptsource.com -->
+<!-- Original:  Benjamin M. Joffe  (ben@joffe.com) -->
+<!-- Web Site:  http://www.joffe.tk/ -->
+<p><input type="button" value="New Question" onclick=domath()></p>
+<table border="1" cellpadding="10" cellspacing="0" bordercolor="#000000" bgcolor="#C0C0C0"><tr><td>
+<p id=distimes></p>
+<p id=displus></p>
+</td></tr></table>
+<p>X = <input maxlength=3 type=text name=xanswer></p>
+<p>Y = <input maxlength=3 type=text name=yanswer></p>
+<p><input type="button" value="Submit Answer" onclick=checkmath()></p>
+
