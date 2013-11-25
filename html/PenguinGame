@@ -28,6 +28,7 @@
 				<button id = answerButton>Answer</button>
 				<textarea id = thisGuy></textarea>
 				<textarea id = thatGuy></textarea>
+				<img id = penguin src= "images\Penguin.png"></img>
 			</div>
                 </div>
         </body>
@@ -88,5 +89,12 @@
         height:48px;
         width:184px;
         margin-top:64px;
+}
+#penguin
+{
+	margin-left:160px;
+	position:absolute;
+	height:212px;
+	width:208px;
 }
 </style>
