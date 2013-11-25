@@ -5,27 +5,105 @@
 var x;
 var y;
 var answer;
+var operator;
 
 var xQuestion;
 var yQuestion;
 
-var clientAnswer
+var clientAnswer;
+
+
 
 function createAnswer()
 {
-	x=Math.round(Math.random()*20);
-	y=Math.round(Math.random()*20);
-	answer=x+y;
-	distimes.innerHTML=answer;
+	operator=Math.floor((Math.random()*4)+1);
+	switch (operator)
+	{
+	case 1:
+		operators.innerHTML="Addition";
+		break;
+	case 2:
+		operators.innerHTML="Subtraction";
+		break;
+	case 3:
+		operators.innerHTML="Multiplication";
+		break;
+	case 4:
+		operators.innerHTML="Division";
+	}
+
+	switch (operator)
+	{
+	case 1:
+		x=Math.round(Math.random()*20);
+		y=Math.round(Math.random()*20);
+		answer=x+y;
+		distimes.innerHTML=answer;
+		break;
+	case 2:
+		x=Math.round(Math.random()*40);
+		y=Math.round(Math.random()*40);
+		while (y>x){
+		y=Math.round(Math.random()*40);
+		}
+		answer=x-y;
+		distimes.innerHTML=answer;
+		break;
+	case 3:
+		x=Math.round(Math.random()*9);
+		y=Math.round(Math.random()*9);
+		answer=x*y;
+		distimes.innerHTML=answer;
+		break;
+	case 4:
+		x=Math.round(Math.random()*64);
+		y=Math.round(Math.random()*9);
+		while ((x/y)%1!=0)
+		{
+		x=Math.round(Math.random()*64);
+		y=Math.round(Math.random()*9);
+		}
+		answer = x/y;
+		distimes.innerHTML=answer;
+		break;
+		
+	}
+	
+
+	
 
 }
 
 function createQuestion()
 {
-	xQuestion=Math.round(Math.random()*10);
-	displus.innerHTML=xQuestion;
-	yQuestion = answer - xQuestion;
-	BRO.innerHTML=yQuestion;
+	switch (operator)
+	{
+	case 1:
+		xQuestion=x;
+		displus.innerHTML=xQuestion;
+		yQuestion = y;
+		BRO.innerHTML=yQuestion;
+		break;
+	case 2:
+		xQuestion=y;
+		BRO.innerHTML=xQuestion;
+		yQuestion =x;
+		displus.innerHTML=yQuestion;
+		break;
+	case 3:
+		xQuestion=x;
+		displus.innerHTML=xQuestion;
+		yQuestion=y;
+		BRO.innerHTML=yQuestion;
+		break;
+	case 4:
+		xQuestion=x;
+		displus.innerHTML=xQuestion;
+		yQuestion=y;
+		BRO.innerHTML=yQuestion;
+		break;
+	}
+	
 
 }
 
@@ -51,7 +129,7 @@ function checkMath()
 
 <body onLoad = "createAnswer()", "createQuestion()" , "checkMath()">
 <table border="1" cellpadding="10" cellspacing="0" bordercolor="#000000" bgcolor="#C0C0C0"><tr><td>
-<p><b>Addition<b/></p>
+<p id =operators></p>
 <p id=distimes></p>
 </td></tr></table>
 
