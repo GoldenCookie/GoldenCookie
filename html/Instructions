@@ -31,12 +31,12 @@
 	#titleBox
 	{
 		background-color: #FFFFFF;
-		height = 6.25em;
+		height = 100px;
 		width = 100%;
 	}
 	#title
 	{
-		font-size: 2.5em;
+		font-size: 48px;
 		color: #000000;
 		text-align: center;
 	}
