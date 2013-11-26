@@ -81,13 +81,13 @@
 {
         position:absolute;
         height:44px;
-        width:154px;
+        width:152px;
 }
 #thatGuy
 {
         position:absolute;
         height:44px;
-        width:154px;
+        width:152px;
         margin-top:53px;
 }
 #penguin
