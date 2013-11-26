@@ -4,7 +4,7 @@
                 <title>Penguin Instructions</title>
         </head>
         <body>
-        	<div id=mainbox>
+        	<div id = mainBox>
 	                <div id="titleBox">
 	                        <h1 id="title">Penguin Instructions</h1>
 			</div>
