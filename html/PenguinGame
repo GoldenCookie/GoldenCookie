@@ -9,27 +9,27 @@
                         <a href= "PenguinInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
                 </div>
                 <div id = questionBox>
-			<div style = "float:left">
-				<button class = number>1</button>
-				<button class = number>2</button>
-				<button class = number>3</button>
-				<button class = number>4</button>
-				<button class = number>5</button>
-			</div>
-			<div style = "float:left">
-				<button class = number>6</button>
-				<button class = number>7</button>
-				<button class = number>8</button>
-				<button class = number>9</button>
-				<button class = number>0</button>
-			</div>
-			<div>
-				<button id = deleteButton>Delete</button>
-				<button id = answerButton>Answer</button>
-				<textarea id = thisGuy></textarea>
-				<textarea id = thatGuy></textarea>
-				<img id = penguin src= "images\Penguin.png"></img>
-			</div>
+                        <div style = "float:left">
+                                <button class = number>1</button>
+                                <button class = number>2</button>
+                                <button class = number>3</button>
+                                <button class = number>4</button>
+                                <button class = number>5</button>
+                        </div>
+                        <div style = "float:left">
+                                <button class = number>6</button>
+                                <button class = number>7</button>
+                                <button class = number>8</button>
+                                <button class = number>9</button>
+                                <button class = number>0</button>
+                        </div>
+                        <div>
+                                <button id = deleteButton>Delete</button>
+                                <button id = answerButton>Answer</button>
+                                <textarea id = thisGuy></textarea>
+                                <textarea id = thatGuy></textarea>
+                                <img id = penguin src= "images\Penguin.png"></img>
+                        </div>
                 </div>
         </body>
 </html>
@@ -52,8 +52,8 @@
 }
 .number
 {
-        height:128px;
-        width:128px;
+        height:106px;
+        width:106px;
 }
 #instructionButton
 {
@@ -63,38 +63,38 @@
 }
 #deleteButton
 {
-        height:256px;
-        width:128px;
+        height:212px;
+        width:106px;
 }
 #answerArea
 {
-        width:256px;
+        width:212px;
 }
 #answerButton
 {
-        margin-top:128px;
+        margin-top:106px;
         position:absolute;
-        height:128px;
-        width:192px;
+        height:106px;
+        width:159px;
 }
 #thisGuy
 {
         position:absolute;
         height:48px;
-        width:184px;
+        width:154px;
 }
 #thatGuy
 {
         position:absolute;
         height:48px;
-        width:184px;
-        margin-top:64px;
+        width:154px;
+        margin-top:53px;
 }
 #penguin
 {
-	margin-left:160px;
-	position:absolute;
-	height:212px;
-	width:208px;
+        margin-left:160px;
+        position:absolute;
+        height:212px;
+        width:212px;
 }
 </style>
