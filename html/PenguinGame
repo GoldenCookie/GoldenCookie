@@ -80,13 +80,13 @@
 #thisGuy
 {
         position:absolute;
-        height:48px;
+        height:44px;
         width:154px;
 }
 #thatGuy
 {
         position:absolute;
-        height:48px;
+        height:44px;
         width:154px;
         margin-top:53px;
 }
