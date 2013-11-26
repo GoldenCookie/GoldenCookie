@@ -38,80 +38,80 @@
 <style>
 #mainBox
 {
-	background-color:#80dfff;
-	height:388px;
-	width:1024px;
-	border: 2px solid #000000;
-	border-radius: 4px;
+        background-color:#80dfff;
+        height:388px;
+        width:1024px;
+        border: 2px solid #000000;
+        border-radius: 4px;
 }
 #questionBox
 {
-	background-color:#aaaaaa;
-	height:212px;
-	width:1024px;
-	border: 2px solid #000000;
-	border-radius: 4px;
+        background-color:#aaaaaa;
+        height:212px;
+        width:1024px;
+        border: 2px solid #000000;
+        border-radius: 4px;
 }
 .number
 {
-	height:128px;
-	width:128px;
+        height:106px;
+        width:106px;
 }
 #instructionButton
 {
-	float:right;
-	height: 64px;
-	width: 128px;
+        float:right;
+        height: 64px;
+        width: 128px;
 }
 #deleteButton
 {
-	height:256px;
-	width:128px;
+        height:212px;
+        width:106px;
 }
 #answerArea
 {
-	width:256px;
+        width:212px;
 }
 #answerButton
 {
-	margin-top:128px;
-	position:absolute;
-	height:128px;
-	width:192px;
+        margin-top:106px;
+        position:absolute;
+        height:106px;
+        width:159px;
 }
 #thisGuy
 {
-	position:absolute;
-	height:48px;
-	width:184px;
+        position:absolute;
+        height:44px;
+        width:152px;
 }
 #thatGuy
 {
-	position:absolute;
-	height:48px;
-	width:184px;
-	margin-top:64px;
+        position:absolute;
+        height:44px;
+        width:152px;
+        margin-top:53px;
 }
 #leftButton
 {
 	position: absolute;
 	margin-left:192px;
-	height:128px;
-	width:124px;
+	height:106px;
+	width:106px;
 }
 #rightButton
 {
 	position: absolute;
-	margin-left:316px;
-	height:128px;
-	width:124px;
+	margin-left:298px;
+	height:106px;
+	width:106px;
 }
 #fireButton
 {
 	position: absolute;
 	margin-left:192px;
-	height:128px;
-	width:248px;
-	margin-top:128px;
+	height:106px;
+	width:212px;
+	margin-top:106px;
 }
 </style>
