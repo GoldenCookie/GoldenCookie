@@ -80,27 +80,31 @@ function createQuestion()
 	{
 	case 1:
 		xQuestion=x;
-		displus.innerHTML=xQuestion;
+		//displus.innerHTML=xQuestion;
 		yQuestion = y;
-		BRO.innerHTML=yQuestion;
+		displus.innerHTML=xQuestion+ " + " + yQuestion;
+		//BRO.innerHTML=yQuestion;
 		break;
 	case 2:
 		xQuestion=y;
-		BRO.innerHTML=xQuestion;
+		//BRO.innerHTML=xQuestion;
 		yQuestion =x;
-		displus.innerHTML=yQuestion;
+		//displus.innerHTML=yQuestion;
+		displus.innerHTML=yQuestion+ " - " + xQuestion;
 		break;
 	case 3:
 		xQuestion=x;
-		displus.innerHTML=xQuestion;
+		//displus.innerHTML=xQuestion;
 		yQuestion=y;
-		BRO.innerHTML=yQuestion;
+		//BRO.innerHTML=yQuestion;
+		displus.innerHTML=xQuestion+ " * " + yQuestion;
 		break;
 	case 4:
 		xQuestion=x;
-		displus.innerHTML=xQuestion;
+		//displus.innerHTML=xQuestion;
 		yQuestion=y;
-		BRO.innerHTML=yQuestion;
+		//BRO.innerHTML=yQuestion;
+		displus.innerHTML=xQuestion+ " / " + yQuestion;
 		break;
 	}
 	
@@ -130,7 +134,7 @@ function checkMath()
 <body onLoad = "createAnswer()", "createQuestion()" , "checkMath()">
 <table border="1" cellpadding="10" cellspacing="0" bordercolor="#000000" bgcolor="#C0C0C0"><tr><td>
 <p id =operators></p>
-<p id=distimes></p>
+<!--<p id=distimes></p>-->
 </td></tr></table>
 
 <p><input type="button" value="Generate Answer" onclick=createAnswer()></p>
@@ -138,7 +142,7 @@ function checkMath()
 <p><input type="button" value="Generate Question" onclick=createQuestion()></p>
 <table border="1" cellpadding="10" cellspacing="0" bordercolor="#000000" bgcolor="#C0C0C0"><tr><td>
 <p id=displus></p>
-<p id=BRO></p>
+<!--<p id=BRO></p>-->
 </td></tr></table>
 
 
