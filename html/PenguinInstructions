@@ -12,8 +12,8 @@
 				<p class = text><b>The object of this game is to get the farthest possible WEEEEEEEEE.</b></P>
 				<a href= "PenguinGame.html">
 			                <button id="Back">
-			                        <p>Back</p>
-			                </button>
+			        		<p>Back</p>
+			        	</button>
 			        </a>
 	               	</div>
 		</div>
