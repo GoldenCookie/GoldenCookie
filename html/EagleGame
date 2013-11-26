@@ -81,27 +81,27 @@
 #thisGuy
 {
 	position:absolute;
-	height:48px;
-	width:154px;
+	height:44px;
+	width:152px;
 }
 #thatGuy
 {
 	position:absolute;
-	height:48px;
-	width:154px;
+	height:44px;
+	width:152px;
 	margin-top:53px;
 }
 #upButton
 {
 	position: absolute;
-	margin-left:192px;
+	margin-left:160px;
 	height:106px;
 	width:212px;
 }
 #downButton
 {
 	position: absolute;
-	margin-left:192px;
+	margin-left:160px;
 	height:106px;
 	width:212px;
 	margin-top:106px;
