@@ -53,8 +53,8 @@
 }
 .number
 {
-	height:128px;
-	width:128px;
+	height:106px;
+	width:106px;
 }
 #instructionButton
 {
@@ -64,46 +64,46 @@
 }
 #deleteButton
 {
-	height:256px;
-	width:128px;
+	height:212px;
+	width:106px;
 }
 #answerArea
 {
-	width:256px;
+	width:212px;
 }
 #answerButton
 {
-	margin-top:128px;
+	margin-top:106px;
 	position:absolute;
-	height:128px;
-	width:192px;
+	height:106px;
+	width:159px;
 }
 #thisGuy
 {
 	position:absolute;
 	height:48px;
-	width:184px;
+	width:154px;
 }
 #thatGuy
 {
 	position:absolute;
 	height:48px;
-	width:184px;
-	margin-top:64px;
+	width:154px;
+	margin-top:53px;
 }
 #upButton
 {
 	position: absolute;
 	margin-left:192px;
-	height:128px;
-	width:248px;
+	height:106px;
+	width:212px;
 }
 #downButton
 {
 	position: absolute;
-	margin-left:248px;
-	height:128px;
-	width:248px;
-	margin-top:128px;
+	margin-left:192px;
+	height:106px;
+	width:212px;
+	margin-top:106px;
 }
 </style>
