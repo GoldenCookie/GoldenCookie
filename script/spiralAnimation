@@ -40,6 +40,6 @@ onload = function()
 	}
 	
 	var id = setInterval(frame,1);
-	//clearInterval(timer) (Makes it stop animating)
+	//clearInterval(id) (Makes it stop animating)
 }
 </script>
