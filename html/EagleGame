@@ -5,8 +5,12 @@
         </head>
         <body>
                 <div id= mainBox>
-                        <a href= "Menu.html"><button id="Back"><p>Back</p></button></a>
-                        <a href= "EagleInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
+				<img id = sky src= "images\eagleBackground.jpg"></img>
+				<a href= "Menu.html"><button id="backButton"><p>Back</p></button></a>
+				<a href= "EagleInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
+					
+					
+                       
                 </div>
                 <div id = questionBox>
 			<div style = "float:left">
@@ -35,6 +39,17 @@
         </body>
 </html>
 <style>
+
+#sky
+{
+	position:absolute;
+	height:388px;
+	width:1024px;
+	border: 2px solid #000000;
+	border-radius: 4px;
+
+}
+
 #mainBox
 {
 	background-color:#80dfff;
@@ -56,9 +71,17 @@
 	height:106px;
 	width:106px;
 }
+#backButton
+{
+	position:absolute;
+	height: 64px;
+	width: 128px;
+	margin-left:0px;
+}
 #instructionButton
 {
-	float:right;
+	position:absolute;
+	margin-left:896px;
 	height: 64px;
 	width: 128px;
 }
