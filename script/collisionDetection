@@ -1,12 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<input type = "button" value = "left" onmousedown = "moveLeft();" onmouseup = "stop();"></input>
+		<input type = "button" value = "right" onmousedown = "moveRight();"onmouseup = "stop();"></input>
+	</body>
+</html>
+<style>
+
+</style>
 <script>
+	var a = document.createElement("div");
+	var aPosX = 0;
+	var aPosY = 0;
+	var aWidth = 0;
+	var aHeight = 0;
+	
+	var b = document.createElement("div");
+	var bPosX = 0;
+	var bPosY = 0;
+	var bWidth = 0;
+	var bHeight = 0;
+	
+	var animate;
+
+
+function moveLeft()
+{
+	bPosX--;
+	b.style.marginLeft = bPosX + 'px';
+	animate = setTimeout(moveLeft,20);
+}
+function moveRight()
+{
+	bPosX++;
+	b.style.marginLeft = bPosX + 'px';
+	animate = setTimeout(moveRight,20);
+}
+function stop()
+{
+	clearTimeout(animate);
+}
 onload = function()
 {
-	
-	var a = document.createElement("div");
-	var aPosX = 500;
-	var aPosY = 500;
-	var aWidth = 50;
-	var aHeight = 50;
+	aPosX = 500;
+	aPosY = 500;
+	aWidth = 50;
+	aHeight = 50;
 	document.body.appendChild(a);
 	a.style.position = 'absolute';
 	a.style.width = aWidth + 'px';
@@ -15,11 +54,10 @@ onload = function()
 	a.style.marginLeft = aPosX + 'px';
 	a.style.marginTop = aPosY + 'px';
 	
-	var b = document.createElement("div");
-	var bPosX = 450;
-	var bPosY = 500;
-	var bWidth = 50;
-	var bHeight = 50;
+	bPosX = 400;
+	bPosY = 500;
+	bWidth = 50;
+	bHeight = 50;
 	document.body.appendChild(b);
 	b.style.position = 'absolute';
 	b.style.width = bWidth + 'px';
@@ -36,15 +74,15 @@ onload = function()
 	var frame = function()
 	{
 		aPosX = aX(count);
-		bPosX = bX(count);
+		//bPosX = bX(count);
 		aPosY = aY(count);
-		bPosY = bY(count);
+		//bPosY = bY(count);
 		count++;
 		
 		a.style.marginLeft = aPosX + 'px';
-		b.style.marginLeft = bPosX + 'px';
+		//b.style.marginLeft = bPosX + 'px';
 		a.style.marginTop = aPosY + 'px';
-		b.style.marginTop = bPosY + 'px';
+		//b.style.marginTop = bPosY + 'px';
 		
 		text.innerHTML='('+ aPosX + ',' + aPosY + ')' + '('+ bPosX + ',' + bPosY + ')';
 		
@@ -60,9 +98,7 @@ onload = function()
 		if((!aboveB&&!belowB&&!toLeftB&&!toRightB)||(!aboveA&&!belowA&&!toLeftA&&!toRightA))
 		{
 			clearInterval(id);
-		}
-		
-		
+		}	
 	}
 	var id = setInterval(frame,25);
 	
@@ -84,5 +120,4 @@ onload = function()
 		return (Math.random() - 0.5)*10 + bPosY;
 	}
 }
-
 </script>
