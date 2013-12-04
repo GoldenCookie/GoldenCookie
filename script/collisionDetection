@@ -1,0 +1,88 @@
+<script>
+onload = function()
+{
+	
+	var a = document.createElement("div");
+	var aPosX = 500;
+	var aPosY = 500;
+	var aWidth = 50;
+	var aHeight = 50;
+	document.body.appendChild(a);
+	a.style.position = 'absolute';
+	a.style.width = aWidth + 'px';
+	a.style.height = aHeight + 'px';
+	a.style.backgroundColor = '#cc0000';
+	a.style.marginLeft = aPosX + 'px';
+	a.style.marginTop = aPosY + 'px';
+	
+	var b = document.createElement("div");
+	var bPosX = 450;
+	var bPosY = 500;
+	var bWidth = 50;
+	var bHeight = 50;
+	document.body.appendChild(b);
+	b.style.position = 'absolute';
+	b.style.width = bWidth + 'px';
+	b.style.height = bHeight + 'px';
+	b.style.backgroundColor = '#00cc00';
+	b.style.marginLeft = bPosX + 'px';
+	b.style.marginTop = bPosY + 'px';
+	
+	var text = document.createElement('div');
+	document.body.appendChild(text);
+	text.style.backgroundColor = '#cccc00';
+	
+	var count = 0;
+	var frame = function()
+	{
+		aPosX = aX(count);
+		bPosX = bX(count);
+		aPosY = aY(count);
+		bPosY = bY(count);
+		count++;
+		
+		a.style.marginLeft = aPosX + 'px';
+		b.style.marginLeft = bPosX + 'px';
+		a.style.marginTop = aPosY + 'px';
+		b.style.marginTop = bPosY + 'px';
+		
+		text.innerHTML='('+ aPosX + ',' + aPosY + ')' + '('+ bPosX + ',' + bPosY + ')';
+		
+		var aboveB = aPosY + aHeight < bPosY;
+		var belowB = aPosY > bPosY + bHeight ;
+		var toLeftB = aPosX + aWidth < bPosX;
+		var toRightB = aPosX > bPosX + bWidth;
+		var aboveA = bPosY + bHeight < aPosY;
+		var belowA = bPosY > aPosY + aHeight ;
+		var toLeftA = bPosX + bWidth< aPosX;
+		var toRightA = bPosX > aPosX + aWidth;
+		
+		if((!aboveB&&!belowB&&!toLeftB&&!toRightB)||(!aboveA&&!belowA&&!toLeftA&&!toRightA))
+		{
+			clearInterval(id);
+		}
+		
+		
+	}
+	var id = setInterval(frame,25);
+	
+	var aX = function(x)
+	{
+		return (Math.random() - 0.5)*10 + aPosX;
+	}
+	var aY = function(x)
+	{
+		return (Math.random() - 0.5)*10 + aPosY;
+	}
+	
+	var bX = function(x)
+	{
+		return (Math.random() - 0.5)*10 + bPosX;
+	}
+	var bY = function(x)
+	{
+		return (Math.random() - 0.5)*10 + bPosY;
+	}
+}
+
+</script>
