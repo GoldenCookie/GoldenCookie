@@ -29,10 +29,10 @@
                         <div>
                                 <button id = deleteButton onClick = "deleteNumber()">Delete</button>
                                 <button id = answerButton onClick = "checkMath()">Answer</button>
-								<form name = "click">
-                                <input type="text" name = "questionBox">
+								<form name = "click" id = "input">
+								<input type="text" name = "questionBox" id = "question" value="fixed value" readonly>
 								<br>
-                                <input type="text" name = "answerBox">
+								<input type="text" name = "answerBox" id = "answer" value="" readonly>
 								<br>
 								</form>
                                 <img id = penguin src= "images\Penguin.jpg"></img>
@@ -42,6 +42,28 @@
         </body>
 </html>
 <style>
+
+#input
+{
+	position:absolute;
+	margin-top:-210px;
+	margin-left:660px;
+}
+
+#question
+{
+        position:absolute;
+        height:40px;
+        width:140px;
+}
+#answer
+{
+        position:absolute;
+        height:40px;
+        width:140px;
+        margin-top:35px;
+}
+
 #mainBox
 {
         background-color:#80dfff;
@@ -49,8 +71,6 @@
         width:1024px;
         border: 2px solid #000000;
         border-radius: 4px;
-        margin-top;-8px;
-        margin-left:-8px;
 }
 #questionBox
 {
@@ -59,7 +79,6 @@
         width:1024px;
         border: 2px solid #000000;
         border-radius: 4px;
-        margin-left:-8px;
 }
 .number
 {
@@ -200,22 +219,22 @@ switch (operator)
 	case 1:
 		xQuestion=x;
 		yQuestion = y;
-		document.click.questionBox.value=xQuestion+ " + " + yQuestion+ " =";
+		document.click.questionBox.value="Question: " + xQuestion+ " + " + yQuestion+ " =";
 		break;
 	case 2:
 		xQuestion=y;
 		yQuestion =x;
-		document.click.questionBox.value=yQuestion+ " - " + xQuestion+ " =";
+		document.click.questionBox.value="Question: " + yQuestion+ " - " + xQuestion+ " =";
 		break;
 	case 3:
 		xQuestion=x;
 		yQuestion=y;
-		document.click.questionBox.value=xQuestion+ " * " + yQuestion+ " =";
+		document.click.questionBox.value="Question: " + xQuestion+ " * " + yQuestion+ " =";
 		break;
 	case 4:
 		xQuestion=x;
 		yQuestion=y;
-		document.click.questionBox.value=xQuestion+ " / " + yQuestion+ " =";
+		document.click.questionBox.value="Question: " + xQuestion+ " / " + yQuestion+ " =";
 		break;
 	}
 	
