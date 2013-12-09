@@ -3,31 +3,37 @@
         <head>
                 <title>Cat Game</title>
         </head>
-        <body>
+         <body onLoad = "createAnswer(), createQuestion()">
                 <div id= mainBox>
                         <a href= "Menu.html"><button id="Back"><p>Back</p></button></a>
                         <a href= "CatInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
                 </div>
                 <div id = questionBox>
 			<div style = "float:left">
-				<button class = number>1</button>
-				<button class = number>2</button>
-				<button class = number>3</button>
-				<button class = number>4</button>
-				<button class = number>5</button>
+				<button class = number onClick = "inputNumber(1)">1</button>
+				<button class = number onClick = "inputNumber(2)">2</button>
+				<button class = number onClick = "inputNumber(3)">3</button>
+				<button class = number onClick = "inputNumber(4)">4</button>
+				<button class = number onClick = "inputNumber(5)">5</button>
 			</div>
 			<div style = "float:left">
-				<button class = number>6</button>
-				<button class = number>7</button>
-				<button class = number>8</button>
-				<button class = number>9</button>
-				<button class = number>0</button>
+				<button class = number onClick = "inputNumber(6)">6</button>
+				<button class = number onClick = "inputNumber(7)">7</button>
+				<button class = number onClick = "inputNumber(8)">8</button>
+				<button class = number onClick = "inputNumber(9)">9</button>
+				<button class = number onClick = "inputNumber(0)">0</button>
 			</div>
 			<div>
-				<button id = deleteButton>Delete</button>
-				<button id = answerButton>Answer</button>
-				<textarea id = thisGuy></textarea>
-				<textarea id = thatGuy></textarea>
+				<button id = deleteButton onClick = "deleteNumber()">Delete</button>
+                <button id = answerButton onClick = "checkMath()">Answer</button>
+				
+				<form name = "click" id = "input">
+				<input type="text" name = "questionBox" id = "question" value="fixed value" readonly>
+				<br>
+                <input type="text" name = "answerBox" id = "answer" value="" readonly>
+				<br>
+				</form>
+
 				<button id = leftButton>Left</button>
 				<button id = rightButton>Right</button>
 				<button id = fireButton>Fire</button>
@@ -36,6 +42,28 @@
         </body>
 </html>
 <style>
+
+#input
+{
+	position:absolute;
+	margin-top:-210px;
+	margin-left:660px;
+}
+
+#question
+{
+        position:absolute;
+        height:40px;
+        width:140px;
+}
+#answer
+{
+        position:absolute;
+        height:40px;
+        width:140px;
+        margin-top:35px;
+}
+
 #mainBox
 {
         background-color:#80dfff;
@@ -82,19 +110,7 @@
         height:106px;
         width:159px;
 }
-#thisGuy
-{
-        position:absolute;
-        height:44px;
-        width:152px;
-}
-#thatGuy
-{
-        position:absolute;
-        height:44px;
-        width:152px;
-        margin-top:53px;
-}
+
 #leftButton
 {
 	position: absolute;
@@ -118,3 +134,148 @@
 	margin-top:106px;
 }
 </style>
+
+<script>
+
+var x;
+var y;
+var answer;
+var operator;
+var xQuestion;
+var yQuestion;
+var clientAnswer;
+var string = "";
+var length;
+
+function inputNumber(num)
+{
+	string = string + num;
+	document.click.answerBox.value=string;
+
+}
+
+function deleteNumber()
+{
+	length = string.length-1;
+	string = string.substring(0, length);
+	document.click.answerBox.value=string;
+}
+
+
+function createAnswer()
+{
+
+	operator=Math.floor((Math.random()*4)+1);
+	
+/*	switch (operator)
+	{
+	case 1:
+		operators.innerHTML="Addition";
+		break;
+	case 2:
+		operators.innerHTML="Subtraction";
+		break;
+	case 3:
+		operators.innerHTML="Multiplication";
+		break;
+	case 4:
+		operators.innerHTML="Division";
+		break;
+	}
+*/
+	switch (operator)
+	{
+	case 1:
+		x=Math.round(Math.random()*20);
+		y=Math.round(Math.random()*20);
+		answer=x+y;
+		break;
+	case 2:
+		x=Math.round(Math.random()*40);
+		y=Math.round(Math.random()*40);
+		while (y>x){
+		y=Math.round(Math.random()*40);
+		}
+		answer=x-y;
+		break;
+	case 3:
+		x=Math.round(Math.random()*9);
+		y=Math.round(Math.random()*9);
+		answer=x*y;
+		break;
+	case 4:
+		x=Math.round(Math.random()*64);
+		y=Math.round(Math.random()*9);
+		while ((x/y)%1!=0)
+		{
+		x=Math.round(Math.random()*64);
+		y=Math.round(Math.random()*9);
+		}
+		answer = x/y;
+		break;
+	}
+
+	
+}
+	
+function createQuestion()
+{
+switch (operator)
+	{
+	case 1:
+		xQuestion=x;
+		yQuestion = y;
+		document.click.questionBox.value="Question: " + xQuestion+ " + " + yQuestion+ " =";
+		break;
+	case 2:
+		xQuestion=y;
+		yQuestion =x;
+		document.click.questionBox.value="Question: " + yQuestion+ " - " + xQuestion+ " =";
+		break;
+	case 3:
+		xQuestion=x;
+		yQuestion=y;
+		document.click.questionBox.value="Question: " + xQuestion+ " * " + yQuestion+ " =";
+		break;
+	case 4:
+		xQuestion=x;
+		yQuestion=y;
+		document.click.questionBox.value="Question: " + xQuestion+ " / " + yQuestion+ " =";
+		break;
+	}
+	
+
+}
+
+function checkMath()
+{
+	if(string.substring()>=1)
+	{
+		clientAnswer=parseInt(string);
+		string="";
+	}
+	else
+	{
+		clientAnswer=0;
+	}
+	if (answer===Number(clientAnswer))
+	{
+		alert('CORRECT');
+		createAnswer();
+		createQuestion();
+		string = "";
+		document.click.answerBox.value=string;
+	}
+	else 
+	{
+		alert('INCORRECT');
+		createAnswer();
+		createQuestion();
+		string = "";
+		document.click.answerBox.value=string;
+	}
+
+}
+
+</script>
+
