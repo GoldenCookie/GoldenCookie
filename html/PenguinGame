@@ -3,18 +3,18 @@
         <head>
                 <title>Penguin Game</title>
         </head>
-        <body onLoad = "createAnswer(), createQuestion()">
-				
-				
-			  <div id= mainBox>
+        <body onLoad = "createAnswer(), createQuestion(), createAnimation()">
+                                
+                                
+                          <div id= mainBox>
                         <a href= "Menu.html"><button id="Back"><p>Back</p></button></a>
-						<a href= "PenguinInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
-						<form name = "blah">
-						<input type= "text" name = "scoreBox" value="Score: 0" readonly>
-						</form>
+                                                <a href= "PenguinInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
+                                                <form name = "blah">
+                                                <input type= "text" name = "scoreBox" value="Score: 0" readonly>
+                                                </form>
                 </div>
                 <div id = questionBox>
-				
+                                
                         <div style = "float:left">
                                 <button class = number onClick = "inputNumber(1)">1</button>
                                 <button class = number onClick = "inputNumber(2)">2</button>
@@ -32,25 +32,25 @@
                         <div>
                                 <button id = deleteButton onClick = "deleteNumber()">Delete</button>
                                 <button id = answerButton onClick = "checkMath()">Answer</button>
-								<form name = "click" id = "input">
-								<input type="text" name = "questionBox" id = "question" value="fixed value" readonly>
-								<br>
-								<input type="text" name = "answerBox" id = "answer" value="" readonly>
-								<br>
-								</form>
+                                                                <form name = "click" id = "input">
+                                                                <input type="text" name = "questionBox" id = "question" value="fixed value" readonly>
+                                                                <br>
+                                                                <input type="text" name = "answerBox" id = "answer" value="" readonly>
+                                                                <br>
+                                                                </form>
                                 <img id = penguin src= "images\Penguin.jpg"></img>
                         </div>
                 </div>
-				
+                                
         </body>
 </html>
 <style>
 
 #input
 {
-	position:absolute;
-	margin-top:-210px;
-	margin-left:660px;
+        position:absolute;
+        margin-top:-210px;
+        margin-left:660px;
 }
 
 #question
@@ -147,124 +147,259 @@ var score=0;
 
 function getScore()
 {
-	score = score+1;
-	document.blah.scoreBox.value="Score: " + score;
+        score = score+1;
+        document.blah.scoreBox.value="Score: " + score;
 }
 
 
 function inputNumber(num)
 {
-	string = string + num;
-	document.click.answerBox.value=string;
+        string = string + num;
+        document.click.answerBox.value=string;
 
 }
 
 function deleteNumber()
 {
-	length = string.length-1;
-	string = string.substring(0, length);
-	document.click.answerBox.value=string;
+        length = string.length-1;
+        string = string.substring(0, length);
+        document.click.answerBox.value=string;
 }
 
 
 function createAnswer()
 {
 
-	operator=Math.floor((Math.random()*4)+1);
-	
-	switch (operator)
-	{
-	case 1:
-		x=Math.round(Math.random()*20);
-		y=Math.round(Math.random()*20);
-		answer=x+y;
-		break;
-	case 2:
-		x=Math.round(Math.random()*40);
-		y=Math.round(Math.random()*40);
-		while (y>x){
-		y=Math.round(Math.random()*40);
-		}
-		answer=x-y;
-		break;
-	case 3:
-		x=Math.round(Math.random()*9);
-		y=Math.round(Math.random()*9);
-		answer=x*y;
-		break;
-	case 4:
-		x=Math.round(Math.random()*64);
-		y=Math.round(Math.random()*9);
-		while ((x/y)%1!=0)
-		{
-		x=Math.round(Math.random()*64);
-		y=Math.round(Math.random()*9);
-		}
-		answer = x/y;
-		break;
-	}
+        operator=Math.floor((Math.random()*4)+1);
+        
+        switch (operator)
+        {
+        case 1:
+                x=Math.round(Math.random()*20);
+                y=Math.round(Math.random()*20);
+                answer=x+y;
+                break;
+        case 2:
+                x=Math.round(Math.random()*40);
+                y=Math.round(Math.random()*40);
+                while (y>x){
+                y=Math.round(Math.random()*40);
+                }
+                answer=x-y;
+                break;
+        case 3:
+                x=Math.round(Math.random()*9);
+                y=Math.round(Math.random()*9);
+                answer=x*y;
+                break;
+        case 4:
+                x=Math.round(Math.random()*64);
+                y=Math.round(Math.random()*9);
+                while ((x/y)%1!=0)
+                {
+                x=Math.round(Math.random()*64);
+                y=Math.round(Math.random()*9);
+                }
+                answer = x/y;
+                break;
+        }
 
-	
+        
 }
-	
+        
 function createQuestion()
 {
 switch (operator)
-	{
-	case 1:
-		xQuestion=x;
-		yQuestion = y;
-		document.click.questionBox.value="Question: " + xQuestion+ " + " + yQuestion+ " =";
-		break;
-	case 2:
-		xQuestion=y;
-		yQuestion =x;
-		document.click.questionBox.value="Question: " + yQuestion+ " - " + xQuestion+ " =";
-		break;
-	case 3:
-		xQuestion=x;
-		yQuestion=y;
-		document.click.questionBox.value="Question: " + xQuestion+ " * " + yQuestion+ " =";
-		break;
-	case 4:
-		xQuestion=x;
-		yQuestion=y;
-		document.click.questionBox.value="Question: " + xQuestion+ " / " + yQuestion+ " =";
-		break;
-	}
-	
+        {
+        case 1:
+                xQuestion=x;
+                yQuestion = y;
+                document.click.questionBox.value="Question: " + xQuestion+ " + " + yQuestion+ " =";
+                break;
+        case 2:
+                xQuestion=y;
+                yQuestion =x;
+                document.click.questionBox.value="Question: " + yQuestion+ " - " + xQuestion+ " =";
+                break;
+        case 3:
+                xQuestion=x;
+                yQuestion=y;
+                document.click.questionBox.value="Question: " + xQuestion+ " * " + yQuestion+ " =";
+                break;
+        case 4:
+                xQuestion=x;
+                yQuestion=y;
+                document.click.questionBox.value="Question: " + xQuestion+ " / " + yQuestion+ " =";
+                break;
+        }
+        
 
 }
 
 function checkMath()
 {
-	if(string.substring()>=1)
-	{
-		clientAnswer=parseInt(string);
-		string="";
-	}
-	else
-	{
-		clientAnswer=0;
-	}
-	if (answer===Number(clientAnswer))
-	{
-		alert('CORRECT');
-		getScore();
-		createAnswer();
-		createQuestion();
-		string = "";
-		document.click.answerBox.value=string;
-	}
-	else 
-	{
-		alert('INCORRECT');
-		createAnswer();
-		createQuestion();
-		string = "";
-		document.click.answerBox.value=string;
-	}
+        if(string.substring()>=1)
+        {
+                clientAnswer=parseInt(string);
+                string="";
+        }
+        else
+        {
+                clientAnswer=0;
+        }
+        if (answer===Number(clientAnswer))
+        {
+                alert('CORRECT');
+                getScore();
+                createAnswer();
+                createQuestion();
+                string = "";
+                document.click.answerBox.value=string;
+				clearInterval(id);
+				hit();
+        }
+        else 
+        {
+                alert('INCORRECT');
+                createAnswer();
+                createQuestion();
+                string = "";
+                document.click.answerBox.value=string;
+				clearInterval(id);
+				miss();
+        }
 
 }
 
+
+
+
+
+
+	var a = document.createElement("div");
+	var aPosX = 0;
+	var aPosY = 0;
+	var aWidth = 0;
+	var aHeight = 0;
+	
+	var b = document.createElement("div");
+	var bPosX = 0;
+	var bPosY = 0;
+	var bWidth = 0;
+	var bHeight = 0;
+	
+	var c = document.createElement("div");
+	var cPosX = 0;
+	var cPosY = 0;
+	var cWidth = 0;
+	var cHeight = 0;
+	
+	var d = document.createElement("div");
+	var dPosX = 0;
+	var dPosY = 0;
+	var dWidth = 0;
+	var dHeight = 0;
+
+	var id;
+	var frame;
+	var frame2;
+	var count = 0;
+	
+	var aDisX = 0;
+	var aDisY = 0;
+	var aVelX = 35;
+	var aVelY = 25;
+	var aAccX = 0;
+	var aAccY = -2;
+	var count = 0;
+	
+	var aRefX = 0 + 2;
+	var aRefY = 340 - 608;
+	
+	aPosX = aRefX;
+	aPosY = aRefY;
+	
+	var bPosX = 850 + 2;
+	var bPosY = 340 - 608;
+	
+function hit()
+{
+	aPosX = aRefX;
+	aPosY = aRefY;
+	a.style.marginLeft = aPosX + 'px';
+	a.style.marginTop = aPosY + 'px';
+	aDisX = 0;
+	aDisY = 0;
+	aVelX = 35;
+	aVelY = 25;
+	aAccX = 0;
+	aAccY = -2;
+	id = setInterval(frame,25);
+}
+function miss()
+{
+	aPosX = aRefX;
+	aPosY = aRefY;
+	a.style.marginLeft = aPosX + 'px';
+	a.style.marginTop = aPosY + 'px';
+	aDisX = 0;
+	aDisY = 0;
+	aVelX = 10;
+	aVelY = 30;
+	aAccX = 0;
+	aAccY = -2;
+	id = setInterval(frame,25);
+}
+function createAnimation()
+{
+	aWidth = 50;
+	aHeight = 50;
+	document.body.appendChild(a);
+	a.style.position = 'absolute';
+	a.style.width = aWidth + 'px';
+	a.style.height = aHeight + 'px';
+	a.style.backgroundColor = '#cc0000';
+	a.style.marginLeft = aPosX + 'px';
+	a.style.marginTop = aPosY + 'px';
+	
+	bWidth = 100;
+	bHeight = 50;
+	document.body.appendChild(b);
+	b.style.position = 'absolute';
+	b.style.width = bWidth + 'px';
+	b.style.height = bHeight + 'px';
+	b.style.backgroundColor = '#cccc00';
+	b.style.marginLeft = bPosX + 'px';
+	b.style.marginTop = bPosY + 'px';
+
+	frame = function()
+	{
+		aDisX += aVelX;
+		aVelX += aAccX;
+			
+		aDisY += aVelY;
+		aVelY += aAccY;
+			
+		aPosX = aRefX + aDisX;
+		aPosY = aRefY - aDisY;
+			
+		a.style.marginLeft = aPosX + 'px';
+		a.style.marginTop = aPosY + 'px';
+	
+		var aboveB = aPosY + aHeight < bPosY;
+		var belowB = aPosY > bPosY + bHeight ;
+		var toLeftB = aPosX + aWidth < bPosX;
+		var toRightB = aPosX > bPosX + bWidth;
+		var aboveA = bPosY + bHeight < aPosY;
+		var belowA = bPosY > aPosY + aHeight ;
+		var toLeftA = bPosX + bWidth< aPosX;
+		var toRightA = bPosX > aPosX + aWidth;
+		
+		if((!aboveB&&!belowB&&!toLeftB&&!toRightB)||(!aboveA&&!belowA&&!toLeftA&&!toRightA) || aPosX > 1024 - aHeight || aPosY > 388 - 608 - aWidth)
+		{
+			clearInterval(id);
+		}	
+	}
+
+}
 </script>
