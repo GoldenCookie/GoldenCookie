@@ -75,8 +75,6 @@
 	width:1024px;
 	border: 2px solid #000000;
 	border-radius: 4px;
-	margin-top:-8px;
-	margin-left:-8px;
 
 }
 
@@ -88,6 +86,7 @@
 	border: 2px solid #000000;
 	border-radius: 4px;
 	margin-left:-8px;
+	margin-top:-8px;
 
 }
 #questionBox
@@ -97,6 +96,7 @@
 	width:1024px;
 	border: 2px solid #000000;
 	border-radius: 4px;
+	margin-left:-8px;
 }
 .number
 {
@@ -178,7 +178,7 @@ var length;
 function inputNumber(num)
 {
 	string = string + num;
-	document.click.answerBox.value=string;  //document.click
+	document.click.answerBox.value=string; 
 
 }
 
@@ -186,7 +186,7 @@ function deleteNumber()
 {
 	length = string.length-1;
 	string = string.substring(0, length);
-	document.click.answerBox.value=string; //document.click
+	document.click.answerBox.value=string; 
 }
 
 
@@ -195,22 +195,6 @@ function createAnswer()
 
 	operator=Math.floor((Math.random()*4)+1);
 	
-/*	switch (operator)
-	{
-	case 1:
-		operators.innerHTML="Addition";
-		break;
-	case 2:
-		operators.innerHTML="Subtraction";
-		break;
-	case 3:
-		operators.innerHTML="Multiplication";
-		break;
-	case 4:
-		operators.innerHTML="Division";
-		break;
-	}
-*/
 	switch (operator)
 	{
 	case 1:
@@ -243,7 +227,6 @@ function createAnswer()
 		break;
 	}
 
-	
 }
 	
 function createQuestion()
@@ -253,22 +236,22 @@ switch (operator)
 	case 1:
 		xQuestion=x;
 		yQuestion = y;
-		document.click.questionBox.value="Question: " + xQuestion+ " + " + yQuestion+ " ="; //document.click
+		document.click.questionBox.value="Question: " + xQuestion+ " + " + yQuestion+ " ="; 
 		break;
 	case 2:
 		xQuestion=y;
 		yQuestion =x;
-		document.click.questionBox.value="Question: " + yQuestion+ " - " + xQuestion+ " ="; // document.click
+		document.click.questionBox.value="Question: " + yQuestion+ " - " + xQuestion+ " ="; 
 		break;
 	case 3:
 		xQuestion=x;
 		yQuestion=y;
-		document.click.questionBox.value="Question: " + xQuestion+ " * " + yQuestion+ " ="; // document.click
+		document.click.questionBox.value="Question: " + xQuestion+ " * " + yQuestion+ " ="; 
 		break;
 	case 4:
 		xQuestion=x;
 		yQuestion=y;
-		document.click.questionBox.value="Question: " + xQuestion+ " / " + yQuestion+ " ="; //document .click
+		document.click.questionBox.value="Question: " + xQuestion+ " / " + yQuestion+ " ="; 
 		break;
 	}
 	
@@ -292,7 +275,7 @@ function checkMath()
 		createAnswer();
 		createQuestion();
 		string = "";
-		document.click.answerBox.value=string; // document.click
+		document.click.answerBox.value=string; 
 	}
 	else 
 	{
@@ -300,7 +283,7 @@ function checkMath()
 		createAnswer();
 		createQuestion();
 		string = "";
-		document.click.answerBox.value=string; // document.click
+		document.click.answerBox.value=string; 
 	}
 
 }
