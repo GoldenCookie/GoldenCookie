@@ -8,7 +8,10 @@
 				
 			  <div id= mainBox>
                         <a href= "Menu.html"><button id="Back"><p>Back</p></button></a>
-                        <a href= "PenguinInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
+						<a href= "PenguinInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
+						<form name = "blah">
+						<input type= "text" name = "scoreBox" value="Score: 0" readonly>
+						</form>
                 </div>
                 <div id = questionBox>
 				
@@ -140,6 +143,14 @@ var yQuestion;
 var clientAnswer;
 var string = "";
 var length;
+var score=0;
+
+function getScore()
+{
+	score = score+1;
+	document.blah.scoreBox.value="Score: " + score;
+}
+
 
 function inputNumber(num)
 {
@@ -161,22 +172,6 @@ function createAnswer()
 
 	operator=Math.floor((Math.random()*4)+1);
 	
-/*	switch (operator)
-	{
-	case 1:
-		operators.innerHTML="Addition";
-		break;
-	case 2:
-		operators.innerHTML="Subtraction";
-		break;
-	case 3:
-		operators.innerHTML="Multiplication";
-		break;
-	case 4:
-		operators.innerHTML="Division";
-		break;
-	}
-*/
 	switch (operator)
 	{
 	case 1:
@@ -255,6 +250,7 @@ function checkMath()
 	if (answer===Number(clientAnswer))
 	{
 		alert('CORRECT');
+		getScore();
 		createAnswer();
 		createQuestion();
 		string = "";
