@@ -7,10 +7,11 @@
                                 
                                 
                           <div id= mainBox>
-                        <a href= "Menu.html"><button id="Back"><p>Back</p></button></a>
+						  <img id = sky src= "images\penguinBackground.JPG"></img>
+                        <a href= "Menu.html"><button id="backButton"><p>Back</p></button></a>
                                                 <a href= "PenguinInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
-                                                <form name = "blah">
-                                                <input type= "text" name = "scoreBox" value="Score: 0" readonly>
+                                                <form name = "blah" id = "rawr">
+                                                <input type= "text" name = "scoreBox" id = "meow" value="Score: 0" readonly>
                                                 </form>
                 </div>
                 <div id = questionBox>
@@ -45,6 +46,27 @@
         </body>
 </html>
 <style>
+#meow
+{
+	width:70px;
+}
+#rawr
+{	margin-top:70px;
+	margin-left:20px;
+	position:absolute;
+	z-index:5;
+}
+
+#sky
+{
+	position:absolute;
+	height:388px;
+	width:1024px;
+	border: 2px solid #000000;
+	border-radius: 4px;
+
+
+}
 
 #input
 {
@@ -69,11 +91,14 @@
 
 #mainBox
 {
-        background-color:#80dfff;
-        height:388px;
-        width:1024px;
-        border: 2px solid #000000;
-        border-radius: 4px;
+    background-color:#80dfff;
+	height:388px;
+	width:1024px;
+	border: 2px solid #000000;
+	border-radius: 4px;
+	margin-left:-8px;
+	margin-top:-8px;
+	z-index:-1;
 }
 #questionBox
 {
@@ -82,17 +107,26 @@
         width:1024px;
         border: 2px solid #000000;
         border-radius: 4px;
+		margin-left:-8px;
 }
 .number
 {
         height:106px;
         width:106px;
 }
+#backButton
+{
+	position:absolute;
+	height: 64px;
+	width: 128px;
+	margin-left:0px;
+}
 #instructionButton
 {
-        float:right;
-        height: 64px;
-        width: 128px;
+	position:absolute;
+	margin-left:896px;
+	height: 64px;
+	width: 128px;
 }
 #deleteButton
 {
@@ -110,19 +144,7 @@
         height:106px;
         width:159px;
 }
-#thisGuy
-{
-        position:absolute;
-        height:44px;
-        width:152px;
-}
-.thatGuy
-{
-        position:absolute;
-        height:44px;
-        width:152px;
-        margin-top:53px;
-}
+
 #penguin
 {
         margin-left:160px;
@@ -314,13 +336,13 @@ function checkMath()
 	var count = 0;
 	
 	var aRefX = 0 + 2;
-	var aRefY = 340 - 608;
+	var aRefY = 220- 608;  //220
 	
 	aPosX = aRefX;
 	aPosY = aRefY;
 	
-	var bPosX = 850 + 2;
-	var bPosY = 340 - 608;
+	var bPosX = 810 + 2;	//850
+	var bPosY = 270 - 608; //220
 	
 function hit()
 {
@@ -330,7 +352,7 @@ function hit()
 	a.style.marginTop = aPosY + 'px';
 	aDisX = 0;
 	aDisY = 0;
-	aVelX = 35;
+	aVelX = 32; //35
 	aVelY = 25;
 	aAccX = 0;
 	aAccY = -2;
@@ -344,8 +366,8 @@ function miss()
 	a.style.marginTop = aPosY + 'px';
 	aDisX = 0;
 	aDisY = 0;
-	aVelX = 10;
-	aVelY = 30;
+	aVelX = 15;
+	aVelY = 25;
 	aAccX = 0;
 	aAccY = -2;
 	id = setInterval(frame,25);
@@ -368,7 +390,7 @@ function createAnimation()
 	b.style.position = 'absolute';
 	b.style.width = bWidth + 'px';
 	b.style.height = bHeight + 'px';
-	b.style.backgroundColor = '#cccc00';
+	b.style.backgroundColor = '#FFFFFF';
 	b.style.marginLeft = bPosX + 'px';
 	b.style.marginTop = bPosY + 'px';
 
@@ -395,7 +417,7 @@ function createAnimation()
 		var toLeftA = bPosX + bWidth< aPosX;
 		var toRightA = bPosX > aPosX + aWidth;
 		
-		if((!aboveB&&!belowB&&!toLeftB&&!toRightB)||(!aboveA&&!belowA&&!toLeftA&&!toRightA) || aPosX > 1024 - aHeight || aPosY > 388 - 608 - aWidth)
+		if((!aboveB&&!belowB&&!toLeftB&&!toRightB)||(!aboveA&&!belowA&&!toLeftA&&!toRightA) || aPosX > 1024 - aHeight || aPosY > 350 - 608 - aWidth)
 		{
 			clearInterval(id);
 		}	
