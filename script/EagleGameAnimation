@@ -1,0 +1,53 @@
+<script>
+
+var e = document.createElement("div");
+var eagle = new Mobile(0,194,50,100,"#ccffaa");
+
+var f = document.createElement("div");
+var fish = new Mobile(900,300,25,50,"#ffbb33");
+
+function Mobile(refX,refY,height,width,color,div)
+{
+	this.refX = refX; // start position (right is positive)
+	this.refY = refY; // start position (down is positive)
+	this.disX = 0; // right is positive
+	this.disY = 0; // up is positive
+	this.posX = this.refX + this.disX;
+	this.posY = this.refY - this.disY; //Up is positive therefore the actual position have down as positive therefore disY is subtracted
+	this.height = height; // How far down the mob extends from posX
+	this.width = width; //How far right the mob extends from posY
+	this.color = color;
+	this.div = div;
+	this.isTouching = function(mobile)
+	{
+		var aboveMob = this.posY + this.height < mobile.posY;
+		var belowMob = this.posY > mobile.posY + mobile.height;
+		var toLeftMob = this.posX + this.width < mobile.posX;
+		var toRightMob = this.posX > mobile.posX + mobile.width;
+		var aboveThis = mobile.posY + mobile.height < this.posY;
+		var belowThis = mobile.posY > this.posY + this.height;
+		var toLeftThis = mobile.posX + mobile.width < this.posX;
+		var toRightThis = mobile.posX > this.posX + this.width;
+			
+		return (!aboveMob&&!belowMob&&!toLeftMob&&!toRightMob)||(!aboveThis&&!belowThis&&!toLeftThis&&!toRightThis)
+	}
+}
+
+function addMobile(element,mob)
+{
+	document.body.appendChild(element);
+	element.style.position = "absolute";
+	element.style.width = mob.width;
+	element.style.height = mob.height;
+	element.style.marginLeft = mob.posX;
+	element.style.marginTop = mob.posY;
+	element.style.backgroundColor = mob.color;
+}
+
+onload = function()
+{
+	addMobile(e,eagle);
+	addMobile(f,fish);
+}
+
+</script>
