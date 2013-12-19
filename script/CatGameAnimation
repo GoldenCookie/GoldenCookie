@@ -1,0 +1,154 @@
+<html>
+	<body>
+		<input type = "button" value = "left" onmousedown = "moveLeft();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+		<input type = "button" value = "right" onmousedown = "moveRight();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+		<input type = "button" value = "fire"  onclick = "fire();"></input>
+	</body>
+</html>
+<script>
+
+var c = document.createElement("div");
+var cat = new Mobile(500,0,50,100,"#ccffaa");
+
+
+var b = document.createElement("div");
+var bug = new Mobile(500,340,25,50,"#ffbb33");
+
+var a = document.createElement("div");
+var apple = new Mobile(500,5,40,40,"#ff3333");
+
+var animate;
+var frame;
+var fall;
+
+var count = 0;
+var velY = 0;
+
+function Mobile(refX,refY,height,width,color)
+{
+	this.refX = refX; // start position (right is positive)
+	this.refY = refY; // start position (down is positive)
+	this.disX = 0; // right is positive
+	this.disY = 0; // up is positive
+	this.posX = this.refX + this.disX;
+	this.posY = this.refY - this.disY; //Up is positive therefore the actual position have down as positive therefore disY is subtracted
+	this.height = height; // How far down the mob extends from posX
+	this.width = width; //How far right the mob extends from posY
+	this.color = color;
+	this.isTouching = function(mobile)
+	{
+		var aboveMob = this.posY + this.height < mobile.posY;
+		var belowMob = this.posY > mobile.posY + mobile.height;
+		var toLeftMob = this.posX + this.width < mobile.posX;
+		var toRightMob = this.posX > mobile.posX + mobile.width;
+		var aboveThis = mobile.posY + mobile.height < this.posY;
+		var belowThis = mobile.posY > this.posY + this.height;
+		var toLeftThis = mobile.posX + mobile.width < this.posX;
+		var toRightThis = mobile.posX > this.posX + this.width;
+			
+		return (!aboveMob&&!belowMob&&!toLeftMob&&!toRightMob)||(!aboveThis&&!belowThis&&!toLeftThis&&!toRightThis)
+	};
+}
+
+function addMobile(element,mob)
+{
+	document.body.appendChild(element);
+	element.style.position = "absolute";
+	element.style.width = mob.width;
+	element.style.height = mob.height;
+	element.style.marginLeft = mob.posX;
+	element.style.marginTop = mob.posY;
+	element.style.backgroundColor = mob.color;
+}
+
+function moveRight()
+{
+	clearTimeout(animate);
+	if(cat.posX < 1000 )
+	{
+		cat.disX+=10;
+		cat.posX = cat.refX + cat.disX;
+		c.style.marginLeft = cat.posX + 'px';
+		animate = setTimeout(moveRight,25);
+	}
+}
+function moveLeft()
+{
+	clearTimeout(animate);
+	if(cat.posX > 50)
+	{
+		cat.disX-=10;
+		cat.posX = cat.refX + cat.disX;
+		c.style.marginLeft = cat.posX + 'px';
+		animate = setTimeout(moveLeft,25);
+	}
+}
+function stop()
+{
+	clearTimeout(animate);
+}
+
+function fly()
+{
+	clearTimeout(frame);
+	moveBug();
+	bug.posX = bug.refX + bug.disX;
+	bug.posY = bug.refY - bug.disY;
+	b.style.marginLeft = bug.posX + "px";
+	b.style.marginTop = bug.posY + "px";
+	frame = setTimeout(fly,25);
+}
+function moveBug()
+{
+	count++;
+	bug.disX = 450*Math.cos(count/20);
+}
+function fire()
+{
+	clearTimeout(fall);
+	apple.refX = cat.posX + 25;
+	apple.refY = cat.posY + 10;
+	velY -= 1;
+	apple.disY += velY;
+	apple.posX = apple.refX + apple.disX;
+	apple.posY = apple.refY - apple.disY;
+	a.style.marginLeft = apple.posX + "px";
+	a.style.marginTop = apple.posY + "px";
+	if(apple.isTouching(bug))
+	{
+		velY = 0;
+		apple.disY = 0;
+		clearTimeout(frame);
+		alert("you got some points");
+		points();
+	}
+	else if (apple.posY > 388)
+	{
+		apple.disY = 0;
+		velY = 0;
+	}
+	else
+	{
+		fall = setTimeout(fire,25);
+	}
+}
+function points()
+{
+	apple.disY += velY;
+	apple.posX = apple.refX + apple.disX;
+	apple.posY = apple.refY - apple.disY;
+	a.style.marginLeft = apple.posX + "px";
+	a.style.marginTop = apple.posY + "px";
+	fly();
+}
+onload = function()
+{
+	addMobile(c,cat);
+	addMobile(b,bug);
+	addMobile(a,apple);
+	fly();
+}
+
+
+
+</script>
