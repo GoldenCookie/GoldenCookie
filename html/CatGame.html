@@ -5,11 +5,12 @@
         </head>
          <body onLoad = "createAnswer(), createQuestion(), doStuff()">
                 <div id= mainBox>
-                        <a href= "Menu.html"><button id="Back"><p>Back</p></button></a>
+                        <img id = sky src= "images\catBackground.jpg"></img>
+						<a href= "Menu.html"><button id="backButton"><p>Back</p></button></a>
                         <a href= "CatInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
-                                                <form name = "blah" id = gameInfo >
-                                                <input type= "text" name = "scoreBox" value= "Score: 0" readonly>
-                                                <input type= "text" name = "ammoBox" value="Apples: 0" readonly>
+                                                <form name = "blah" >
+                                                <input id = gameInfo type= "text" name = "scoreBox" value= "Score: 0" readonly>
+                                                <input id = info type= "text" name = "ammoBox" value="Apples: 0" readonly>
                                                 </form>
                 </div>
                 <div id = questionBox>
@@ -67,6 +68,15 @@
         width:140px;
         margin-top:35px;
 }
+#sky
+{
+        position:absolute;
+        height:388px;
+        width:1024px;
+        border: 2px solid #000000;
+        border-radius: 4px;
+
+}
 
 #mainBox
 {
@@ -92,9 +102,17 @@
         height:106px;
         width:106px;
 }
+#backButton
+{
+        position:absolute;
+        height: 64px;
+        width: 128px;
+        margin-left:0px;
+}
 #instructionButton
 {
-        float:right;
+        position:absolute;
+        margin-left:896px;
         height: 64px;
         width: 128px;
 }
@@ -140,8 +158,12 @@
 #gameInfo
 {
 	position:absolute;
-	margin-top:-48px;
-	margin-left:64px;
+	margin-left:130px;
+}
+#info
+{
+	position:absolute;
+	margin-left:290px;
 }
 </style>
 
@@ -278,7 +300,6 @@ function checkMath()
         
         if (answer===Number(clientAnswer))
         {
-                alert('+4 Apples');
                 refillApples();
                 createAnswer();
                 createQuestion();
@@ -287,7 +308,6 @@ function checkMath()
         }
         else 
         {
-                alert('Sorry, Try again');
                 createAnswer();
                 createQuestion();
                 string = "";
@@ -295,15 +315,15 @@ function checkMath()
         }
 
 }
-var c = document.createElement("div");
-var cat = new Mobile(500,64 - 5 - 600,50,100,"#ccffaa");
 
+var c = document.createElement("img");
+var cat = new Mobile(500,64 - 5 - 600,50,100,"images/catLeft.png");
 
-var b = document.createElement("div");
-var bug = new Mobile(500,340 - 600,25,50,"#ffbb33");
+var b = document.createElement("img");
+var bug = new Mobile(500,340 - 600,25,50,"images/mouse.png");
 
-var a = document.createElement("div");
-var apple = new Mobile(-200,-800,40,40,"#ff3333");
+var a = document.createElement("img");
+var apple = new Mobile(-200,-800,40,40,"images/apple.png");
 
 var animate;
 var frame;
@@ -312,7 +332,7 @@ var fall;
 var count = 0;
 var velY = 0;
 
-function Mobile(refX,refY,height,width,color)
+function Mobile(refX,refY,height,width,src)
 {
         this.refX = refX; // start position (right is positive)
         this.refY = refY; // start position (down is positive)
@@ -322,8 +342,8 @@ function Mobile(refX,refY,height,width,color)
         this.posY = this.refY - this.disY; //Up is positive therefore the actual position have down as positive therefore disY is subtracted
         this.height = height; // How far down the mob extends from posX
         this.width = width; //How far right the mob extends from posY
-        this.color = color;
-        this.isTouching = function(mobile)
+        this.src = src;
+		this.isTouching = function(mobile)
         {
                 var aboveMob = this.posY + this.height < mobile.posY;
                 var belowMob = this.posY > mobile.posY + mobile.height;
@@ -346,12 +366,13 @@ function addMobile(element,mob)
         element.style.height = mob.height + "px";
         element.style.marginLeft = mob.posX + "px";
         element.style.marginTop = mob.posY + "px";
-        element.style.backgroundColor = mob.color;
+        element.setAttribute("src",mob.src);
 }
 
 function moveRight()
 {
         clearTimeout(animate);
+		c.setAttribute("src","images/catRight.png");
         if(cat.posX < 910 )
         {
                 cat.disX+=10;
@@ -363,6 +384,7 @@ function moveRight()
 function moveLeft()
 {
         clearTimeout(animate);
+		c.setAttribute("src","images/catLeft.png");
         if(cat.posX > 12)
         {
                 cat.disX-=10;
@@ -405,7 +427,6 @@ function fire()
         if(apple.isTouching(bug))
         {
                 clearTimeout(frame);
-                alert("you got some points");
                 points();
 				g=false;
 				
@@ -430,14 +451,16 @@ function points()
         apple.posY = apple.refY - apple.disY;
 		score+=10;
 		document.blah.scoreBox.value="Score: " + score;
+		count = 0;
         fly();
 }
 function doStuff()
 {
-        addMobile(c,cat);
-        addMobile(b,bug);
-        addMobile(a,apple);
-        fly();
+       addMobile(c,cat);
+       addMobile(b,bug);
+       addMobile(a,apple);
+       fly();
 }
+
 </script>
 
