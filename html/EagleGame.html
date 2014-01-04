@@ -5,7 +5,7 @@
         </head>
         <body onLoad = "createAnswer(), createQuestion(), doStuff()">
                 <div id= mainBox>
-                                <!--<img id = sky src= "images\eagleBackground.jpg"></img>-->
+                                <img id = sky src= "images\eagleBackground.jpg"></img>
                                 <a href= "Menu.html"><button id="backButton"><p>Back</p></button></a>
                                 <a href= "EagleInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
                                         
@@ -271,15 +271,21 @@ function checkMath()
         }
         if (answer===Number(clientAnswer))
         {
-                alert('CORRECT');
                 createAnswer();
                 createQuestion();
                 string = "";
                 document.click.answerBox.value=string; 
+				if(isGameOver)
+				{
+					isGameOver = false;
+					reset();
+					alert("Game On!");
+					doStuff();
+				}
+				
         }
         else 
         {
-                alert('INCORRECT');
                 createAnswer();
                 createQuestion();
                 string = "";
@@ -288,16 +294,16 @@ function checkMath()
 
 }
 
-var e = document.createElement("div");
-var eagle = new Mobile(0,194-600,50,100,"#ccffaa");
+var e = document.createElement("img");
+var eagle = new Mobile(0,194-600,50,100,"images/eagle.png");
 eagle.health = 100;
 eagle.depleteRate = 0.10; //Fraction of health depleted per second
 
-var f = document.createElement("div");
-var fish = new Mobile(900,206-600,25,50,"#ffbb33");
+var f = document.createElement("img");
+var fish = new Mobile(900,206-600,25,50,"images/fish.png");
 
-var t = document.createElement("div");
-var tree = new Mobile(600,226-600,156,25,"#cccc88");
+var t = document.createElement("img");
+var tree = new Mobile(600,226-600,156,100,"images/tree.png");
 
 var animate;
 var frame;
@@ -316,7 +322,13 @@ var isCorrectAnswer;
 
 var count = 0;
 
-function Mobile(refX,refY,height,width,color)
+var isGameOver = false;
+
+function reset()
+{
+	eagle.health = 100;
+}
+function Mobile(refX,refY,height,width,src)
 {
         this.refX = refX; // start position (right is positive)
         this.refY = refY; // start position (down is positive)
@@ -326,7 +338,7 @@ function Mobile(refX,refY,height,width,color)
         this.posY = this.refY - this.disY; //Up is positive therefore the actual position have down as positive therefore disY is subtracted
         this.height = height; // How far down the mob extends from posX
         this.width = width; //How far right the mob extends from posY
-        this.color = color;
+		this.src = src;
         this.isTouching = function(mobile)
         {
                 var aboveMob = this.posY + this.height < mobile.posY;
@@ -350,7 +362,7 @@ function addMobile(element,mob)
         element.style.height = mob.height + "px";
         element.style.marginLeft = mob.posX + "px";
         element.style.marginTop = mob.posY + "px";
-        element.style.backgroundColor = mob.color;
+        element.setAttribute("src",mob.src);
 }
 
 function moveUp()
@@ -379,7 +391,20 @@ function stop()
 {
         clearTimeout(animate);
 }
-
+var prey = true;
+function changePrey()
+{
+	if(prey)
+	{
+		f.setAttribute("src","images/mouse.png");
+		prey = false;
+	}
+	else
+	{
+		f.setAttribute("src","images/fish.png");
+		prey = true;
+	}
+}
 function fly()
 {
         clearTimeout(fly);
@@ -409,6 +434,7 @@ function fly()
                         eagle.health += 100;
                 }
                 fish.refX = 900;
+				changePrey();
         }
 		if(eagle.isTouching(tree))
         {
@@ -418,6 +444,7 @@ function fly()
         if(fish.posX < 0)
         {
                 fish.refX = 900;
+				changePrey();
         }
 		if(tree.posX < 0)
         {
@@ -426,10 +453,12 @@ function fly()
 				if (c > 0.5)
 				{
 					tree.refY = 64 - 600;
+					t.setAttribute("src","images/gas.png");
 				}
 				else
 				{
 					tree.refY = 226 - 600;
+					t.setAttribute("src","images/tree.png");
 				}
         }
         if(eagle.health > 0.5)
@@ -445,7 +474,7 @@ function fly()
 function Question()
 {
         clearTimeout(fly);
-        isCorrectAnswer = prompt("1 or 0");
+        isCorrectAnswer = true;
 }
 function moveFish()
 {
@@ -456,6 +485,7 @@ function GameOver()
 {
 	eagle.health = 0;
 	text.innerHTML = "Health: " + Math.round(eagle.health) + " Distance: " + Math.round(distance/1000);
+	isGameOver = true;
 	alert("Game Over");
 }
 function doStuff()
@@ -464,6 +494,28 @@ function doStuff()
         addMobile(f,fish);
 		addMobile(t,tree);
         fly();
+		flap();
+}
+var fl;
+var flapUp = false;
+function flap()
+{
+	if(!isGameOver)
+	{
+		clearTimeout(fl);
+		if(flapUp)
+		{
+			e.setAttribute("src","images/eagle.png");
+			flapUp = false;
+		}
+		else
+		{
+			e.setAttribute("src","images/eagle2.png");
+			flapUp = true;
+		}
+		fl = setTimeout(flap, 100000/(eagle.health*5));
+	}
+	
 }
 
 
