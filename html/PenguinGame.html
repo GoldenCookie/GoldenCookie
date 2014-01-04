@@ -39,7 +39,7 @@
                                                                 <input type="text" name = "answerBox" id = "answer" value="" readonly>
                                                                 <br>
                                                                 </form>
-                                <img id = penguin src= "images\Penguin.jpg"></img>
+                                <img id = penguin src= "images\penguin.jpg"></img>
                         </div>
                 </div>
                                 
@@ -298,7 +298,8 @@ function checkMath()
 
 
 
-	var a = document.createElement("div");
+	var a = document.createElement("img");
+	a.setAttribute("src","images/good.png");
 	var aPosX = 0;
 	var aPosY = 0;
 	var aWidth = 0;
@@ -310,17 +311,6 @@ function checkMath()
 	var bWidth = 0;
 	var bHeight = 0;
 	
-	var c = document.createElement("div");
-	var cPosX = 0;
-	var cPosY = 0;
-	var cWidth = 0;
-	var cHeight = 0;
-	
-	var d = document.createElement("div");
-	var dPosX = 0;
-	var dPosY = 0;
-	var dWidth = 0;
-	var dHeight = 0;
 
 	var id;
 	var frame;
@@ -380,7 +370,6 @@ function createAnimation()
 	a.style.position = 'absolute';
 	a.style.width = aWidth + 'px';
 	a.style.height = aHeight + 'px';
-	a.style.backgroundColor = '#cc0000';
 	a.style.marginLeft = aPosX + 'px';
 	a.style.marginTop = aPosY + 'px';
 	
