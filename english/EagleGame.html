@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Eagle Game</title>
+        </head>
+        <body onLoad = "createAnswer(), createQuestion(), ready()">
+                <div id= mainBox>
+                                <img id = sky src= "images\eagleBackground.jpg"></img>
+                                <a href= "Menu.html"><button id="backButton"><p>Back</p></button></a>
+                                <a href= "EagleInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
+                                
+                                <button id = gameButton onclick = "doStuff();"><p><strong>Click to start!</strong><p><p>Or Read the Instructions!</p></button>        
+                       
+                </div>
+                <div id = questionBox>
+                        <div style = "float:left">
+                                <button class = number onClick = "inputNumber(1)">1</button>
+                                <button class = number onClick = "inputNumber(2)">2</button>
+                                <button class = number onClick = "inputNumber(3)">3</button>
+                                <button class = number onClick = "inputNumber(4)">4</button>
+                                <button class = number onClick = "inputNumber(5)">5</button>
+                        </div>
+                        <div style = "float:left">
+                                <button class = number onClick = "inputNumber(6)">6</button>
+                                <button class = number onClick = "inputNumber(7)">7</button>
+                                <button class = number onClick = "inputNumber(8)">8</button>
+                                <button class = number onClick = "inputNumber(9)">9</button>
+                                <button class = number onClick = "inputNumber(0)">0</button>
+                        </div>
+                        <div>
+                                <button id = deleteButton onClick = "deleteNumber()">Delete</button>
+								<button id = answerButton onClick = "checkMath()">Answer</button>
+                                
+                                
+                                <form name = "click" id = "input">
+                                <input type="text" name = "questionBox" id = "question" value="fixed value" readonly>
+                                <br>
+                <input type="text" name = "answerBox" id = "answer" value="" readonly>
+                                <br>
+                                </form>
+                                
+                                <input id = upButton type = "button" value = "up" onmousedown = "moveUp();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+								<input id = downButton type = "button" value = "down" onmousedown = "moveDown();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+                        </div>
+                </div>
+        </body>
+</html>
+<style>
+
+#input
+{
+        position:absolute;
+        margin-top:-210px;
+        margin-left:660px;
+}
+
+#question
+{
+        position:absolute;
+        height:40px;
+        width:140px;
+}
+#answer
+{
+        position:absolute;
+        height:40px;
+        width:140px;
+        margin-top:35px;
+}
+
+#sky
+{
+        position:absolute;
+        height:388px;
+        width:1024px;
+        border: 2px solid #000000;
+        border-radius: 4px;
+
+}
+
+#mainBox
+{
+        background-color:#80dfff;
+        height:388px;
+        width:1024px;
+        border: 2px solid #000000;
+        border-radius: 4px;
+        margin-left:-8px;
+        margin-top:-8px;
+
+}
+#questionBox
+{
+        background-color:#aaaaaa;
+        height:212px;
+        width:1024px;
+        border: 2px solid #000000;
+        border-radius: 4px;
+        margin-left:-8px;
+}
+.number
+{
+        height:106px;
+        width:106px;
+}
+#backButton
+{
+        position:absolute;
+        height: 64px;
+        width: 128px;
+        margin-left:0px;
+}
+#instructionButton
+{
+        position:absolute;
+        margin-left:896px;
+        height: 64px;
+        width: 128px;
+}
+#deleteButton
+{
+        height:212px;
+        width:106px;
+}
+#answerArea
+{
+        width:212px;
+}
+#answerButton
+{
+        margin-top:106px;
+        position:absolute;
+        height:106px;
+        width:159px;
+}
+#thisGuy
+{
+        position:absolute;
+        height:44px;
+        width:152px;
+}
+#thatGuy
+{
+        position:absolute;
+        height:44px;
+        width:152px;
+        margin-top:53px;
+}
+#upButton
+{
+        position: absolute;
+        margin-left:160px;
+        height:106px;
+        width:208px;
+}
+#downButton
+{
+        position: absolute;
+        margin-left:160px;
+        height:106px;
+        width:208px;
+        margin-top:106px;
+}
+#gameButton
+{
+		position:absolute;
+        height:350px;
+        width:250px;
+}
+</style>
+
+<script>
+var frameRate = 50;
+function ready()
+{
+	if(!isGameOver)
+	{
+		document.getElementById("gameButton").innerHTML = "<p><strong>Click to start!</strong></p><p>The object of this game is to FLY the farthest possible</p><p>Your health determines how fast you fly. Careful it decreases with time.</p><p>Eat fish or mice to restore 100 health.</p><p>Avoid trees and gas clouds or lose 100 health</p><p>When you reach 0 health the game is over!</p><p>But you can answer a math question to start again! You can even keep your score!</p>";
+	}
+	else
+	{
+		document.getElementById("gameButton").innerHTML = "<p><strong>GAME OVER</strong><p></p>To Continue: Answer a question or read the Instructions!</p>";
+	}
+	document.getElementById("gameButton").style.marginLeft = "420px";
+	document.getElementById("gameButton").style.marginTop = "30px";
+}
+var x;
+var y;
+var answer;
+var operator;
+var xQuestion;
+var yQuestion;
+var clientAnswer;
+var string = "";
+var length;
+
+function inputNumber(num)
+{
+        string = string + num;
+        document.click.answerBox.value=string; 
+
+}
+
+function deleteNumber()
+{
+        length = string.length-1;
+        string = string.substring(0, length);
+        document.click.answerBox.value=string; 
+}
+
+
+function createAnswer()
+{
+
+        operator=Math.floor((Math.random()*4)+1);
+        
+        switch (operator)
+        {
+        case 1:
+                x=Math.round(Math.random()*20);
+                y=Math.round(Math.random()*20);
+                answer=x+y;
+                break;
+        case 2:
+                x=Math.round(Math.random()*40);
+                y=Math.round(Math.random()*40);
+                while (y>x){
+                y=Math.round(Math.random()*40);
+                }
+                answer=x-y;
+                break;
+        case 3:
+                x=Math.round(Math.random()*9);
+                y=Math.round(Math.random()*9);
+                answer=x*y;
+                break;
+        case 4:
+                x=Math.round(Math.random()*64);
+                y=Math.round(Math.random()*9);
+                while ((x/y)%1!=0)
+                {
+                x=Math.round(Math.random()*64);
+                y=Math.round(Math.random()*9);
+                }
+                answer = x/y;
+                break;
+        }
+
+}
+        
+function createQuestion()
+{
+switch (operator)
+        {
+        case 1:
+                xQuestion=x;
+                yQuestion = y;
+                document.click.questionBox.value="Question: " + xQuestion+ " + " + yQuestion+ " ="; 
+                break;
+        case 2:
+                xQuestion=y;
+                yQuestion =x;
+                document.click.questionBox.value="Question: " + yQuestion+ " - " + xQuestion+ " ="; 
+                break;
+        case 3:
+                xQuestion=x;
+                yQuestion=y;
+                document.click.questionBox.value="Question: " + xQuestion+ " x " + yQuestion+ " ="; 
+                break;
+        case 4:
+                xQuestion=x;
+                yQuestion=y;
+                document.click.questionBox.value="Question: " + xQuestion+ " / " + yQuestion+ " ="; 
+                break;
+        }
+        
+
+}
+
+function checkMath()
+{
+        if(string.substring()>=1)
+        {
+                clientAnswer=parseInt(string);
+                string="";
+        }
+        else
+        {
+                clientAnswer=0;
+        }
+        if (answer===Number(clientAnswer))
+        {
+                createAnswer();
+                createQuestion();
+                string = "";
+                document.click.answerBox.value=string; 
+				if(isGameOver)
+				{
+					isGameOver = false;
+					reset();
+				}
+				
+        }
+        else 
+        {
+                createAnswer();
+                createQuestion();
+                string = "";
+                document.click.answerBox.value=string; 
+        }
+
+}
+
+var e = document.createElement("img");
+var eagle = new Mobile(0,194-600,50,100,"images/eagle.png");
+eagle.health = 100;
+eagle.depleteRate = 0.10; //Fraction of health depleted per second
+
+var f = document.createElement("img");
+var fish = new Mobile(900,206-600,25,50,"images/fish.png");
+
+var t = document.createElement("img");
+var tree = new Mobile(600,226-600,156,100,"images/tree.png");
+
+var animate;
+var frame;
+
+var text = document.createElement('p');
+document.body.appendChild(text);
+text.style.position = "absolute";
+text.style.marginTop = "-600px";
+text.style.marginLeft = "124px";
+text.style.backgroundColor = "#ffffff";
+var distance = 0;
+
+var velX;
+
+var isCorrectAnswer;
+
+var count = 0;
+
+var isGameOver = false;
+
+function reset()
+{
+	eagle.health = 100;
+	ready();
+}
+function Mobile(refX,refY,height,width,src)
+{
+        this.refX = refX; // start position (right is positive)
+        this.refY = refY; // start position (down is positive)
+        this.disX = 0; // right is positive
+        this.disY = 0; // up is positive
+        this.posX = this.refX + this.disX;
+        this.posY = this.refY - this.disY; //Up is positive therefore the actual position have down as positive therefore disY is subtracted
+        this.height = height; // How far down the mob extends from posX
+        this.width = width; //How far right the mob extends from posY
+		this.src = src;
+        this.isTouching = function(mobile)
+        {
+                var aboveMob = this.posY + this.height < mobile.posY;
+                var belowMob = this.posY > mobile.posY + mobile.height;
+                var toLeftMob = this.posX + this.width < mobile.posX;
+                var toRightMob = this.posX > mobile.posX + mobile.width;
+                var aboveThis = mobile.posY + mobile.height < this.posY;
+                var belowThis = mobile.posY > this.posY + this.height;
+                var toLeftThis = mobile.posX + mobile.width < this.posX;
+                var toRightThis = mobile.posX > this.posX + this.width;
+                        
+                return (!aboveMob&&!belowMob&&!toLeftMob&&!toRightMob)||(!aboveThis&&!belowThis&&!toLeftThis&&!toRightThis)
+        };
+}
+
+function addMobile(element,mob)
+{
+        document.body.appendChild(element);
+        element.style.position = "absolute";
+        element.style.width = mob.width + "px";
+        element.style.height = mob.height + "px";
+        element.style.marginLeft = mob.posX + "px";
+        element.style.marginTop = mob.posY + "px";
+        element.setAttribute("src",mob.src);
+}
+
+function moveUp()
+{
+        clearTimeout(animate);
+        if(eagle.posY > 63 - 600 )
+        {
+                eagle.disY+=10;
+                eagle.posY = eagle.refY - eagle.disY;
+                e.style.marginTop = eagle.posY + 'px';
+                animate = setTimeout(moveUp,frameRate);
+        }
+}
+function moveDown()
+{
+        clearTimeout(animate);
+        if(eagle.posY < 325 - 600)
+        {
+                eagle.disY-=10;
+                eagle.posY = eagle.refY - eagle.disY;
+                e.style.marginTop = eagle.posY + 'px';
+                animate = setTimeout(moveDown,frameRate);
+        }
+}
+function stop()
+{
+        clearTimeout(animate);
+}
+var prey = true;
+function changePrey()
+{
+	if(prey)
+	{
+		f.setAttribute("src","images/mouse.png");
+		prey = false;
+	}
+	else
+	{
+		f.setAttribute("src","images/fish.png");
+		prey = true;
+	}
+}
+function changeTree()
+{
+	var c = Math.random();
+	if (c > 0.5)
+	{
+		tree.refY = 64 - 600;
+		t.setAttribute("src","images/gas.png");
+	}
+	else
+	{
+		tree.refY = 226 - 600;
+		t.setAttribute("src","images/tree.png");
+	}
+}
+function fly()
+{
+        clearTimeout(fly);
+        velX = eagle.health + 200; //pixels per second
+		distance += velX;
+        eagle.health = eagle.health*(1-eagle.depleteRate/(1000/frameRate));
+        text.innerHTML = "Health: " + Math.round(eagle.health) + " Distance: " + Math.round(distance/1000);
+        fish.refX -= velX/(1000/frameRate);
+		tree.refX -= velX/(1000/frameRate);
+        moveFish();
+		
+        fish.posX = fish.refX + fish.disX;
+        fish.posY = fish.refY - fish.disY;
+        f.style.marginLeft = fish.posX + "px";
+        f.style.marginTop = fish.posY + "px";
+		
+		tree.posX = tree.refX + tree.disX;
+        tree.posY = tree.refY - tree.disY;
+        t.style.marginLeft = tree.posX + "px";
+        t.style.marginTop = tree.posY + "px";
+		
+        if(eagle.isTouching(fish))
+        {
+                Question();
+                if(isCorrectAnswer == 1)
+                {
+                        eagle.health += 100;
+                }
+                fish.refX = 900;
+				changePrey();
+        }
+		if(eagle.isTouching(tree))
+        {
+                eagle.health -= 100;
+                tree.refX = 900;
+        }
+        if(fish.posX < 0)
+        {
+                fish.refX = 900;
+				changePrey();
+        }
+		if(tree.posX < 0)
+        {
+                tree.refX = 900;
+				changeTree();
+        }
+        if(eagle.health > 0.5)
+        {
+                frame = setTimeout(fly,frameRate);
+        }
+        else
+        {
+                clearTimeout(fly);
+                GameOver();
+        }
+}
+function Question()
+{
+        clearTimeout(fly);
+        isCorrectAnswer = true;
+}
+function moveFish()
+{
+        count++;
+        fish.disY = 150*Math.cos(count/10);
+}
+function GameOver()
+{
+	eagle.health = 0;
+	text.innerHTML = "Health: " + Math.round(eagle.health) + " Distance: " + Math.round(distance/1000);
+	isGameOver = true;
+	ready();
+}
+function doStuff()
+{
+		document.getElementById("gameButton").style.marginLeft = "-500px";
+		document.getElementById("gameButton").style.marginTop = "-500px";
+		if(!isGameOver)
+		{
+			addMobile(e,eagle);
+			addMobile(f,fish);
+			addMobile(t,tree);
+			changeTree();
+			changePrey();
+			fly();
+			flap();
+		}
+}
+var fl;
+var flapUp = false;
+function flap()
+{
+	if(!isGameOver)
+	{
+		clearTimeout(fl);
+		if(flapUp)
+		{
+			e.setAttribute("src","images/eagle.png");
+			flapUp = false;
+		}
+		else
+		{
+			e.setAttribute("src","images/eagle2.png");
+			flapUp = true;
+		}
+		fl = setTimeout(flap, 100000/(eagle.health*5));
+	}
+	
+}
+
+
+</script>

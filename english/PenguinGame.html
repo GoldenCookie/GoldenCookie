@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Penguin Game</title>
+        </head>
+        <body onLoad = "createAnswer(), createQuestion(), ready()">
+                                
+                                
+                          <div id= mainBox>
+						  <img id = sky src= "images\penguinBackground.jpg"></img>
+                        <a href= "Menu.html"><button id="backButton"><p>Back</p></button></a>
+                                                <a href= "PenguinInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
+                                                <form name = "blah" id = "rawr">
+                                                <input type= "text" name = "scoreBox" id = "meow" value="Score: 0" readonly>
+                                                </form>
+												
+						<button id = gameButton onclick = "createAnimation();"><p><strong>Click to start!</strong><p><p>Or Read the Instructions!</p></button>
+                </div>
+                <div id = questionBox>
+                                
+                        <div style = "float:left">
+                                <button class = number onClick = "inputNumber(1)">1</button>
+                                <button class = number onClick = "inputNumber(2)">2</button>
+                                <button class = number onClick = "inputNumber(3)">3</button>
+                                <button class = number onClick = "inputNumber(4)">4</button>
+                                <button class = number onClick = "inputNumber(5)">5</button>
+                        </div>
+                        <div style = "float:left">
+                                <button class = number onClick = "inputNumber(6)">6</button>
+                                <button class = number onClick = "inputNumber(7)">7</button>
+                                <button class = number onClick = "inputNumber(8)">8</button>
+                                <button class = number onClick = "inputNumber(9)">9</button>
+                                <button class = number onClick = "inputNumber(0)">0</button>
+                        </div>
+                        <div>
+                                <button id = deleteButton onClick = "deleteNumber()">Delete</button>
+                                <button id = answerButton onClick = "checkMath()">Answer</button>
+                                                                <form name = "click" id = "input">
+                                                                <input type="text" name = "questionBox" id = "question" value="fixed value" readonly>
+                                                                <br>
+                                                                <input type="text" name = "answerBox" id = "answer" value="" readonly>
+                                                                <br>
+                                                                </form>
+                                <img id = penguin src= "images\penguin.jpg"></img>
+                        </div>
+                </div>
+                                
+        </body>
+</html>
+<style>
+#meow
+{
+	width:70px;
+}
+#rawr
+{	margin-top:70px;
+	margin-left:20px;
+	position:absolute;
+	z-index:5;
+}
+
+#sky
+{
+	position:absolute;
+	height:388px;
+	width:1024px;
+	border: 2px solid #000000;
+	border-radius: 4px;
+
+
+}
+
+#input
+{
+        position:absolute;
+        margin-top:-210px;
+        margin-left:660px;
+}
+
+#question
+{
+        position:absolute;
+        height:40px;
+        width:140px;
+}
+#answer
+{
+        position:absolute;
+        height:40px;
+        width:140px;
+        margin-top:35px;
+}
+
+#mainBox
+{
+    background-color:#80dfff;
+	height:388px;
+	width:1024px;
+	border: 2px solid #000000;
+	border-radius: 4px;
+	margin-left:-8px;
+	margin-top:-8px;
+	z-index:-1;
+}
+#questionBox
+{
+        background-color:#aaaaaa;
+        height:212px;
+        width:1024px;
+        border: 2px solid #000000;
+        border-radius: 4px;
+		margin-left:-8px;
+}
+.number
+{
+        height:106px;
+        width:106px;
+}
+#backButton
+{
+	position:absolute;
+	height: 64px;
+	width: 128px;
+	margin-left:0px;
+}
+#instructionButton
+{
+	position:absolute;
+	margin-left:896px;
+	height: 64px;
+	width: 128px;
+}
+#deleteButton
+{
+        height:212px;
+        width:106px;
+}
+#answerArea
+{
+        width:212px;
+}
+#answerButton
+{
+        margin-top:106px;
+        position:absolute;
+        height:106px;
+        width:159px;
+}
+
+#penguin
+{
+        margin-left:160px;
+        position:absolute;
+        height:212px;
+        width:208px;
+}
+#gameButton
+{
+		position:absolute;
+        height:300px;
+        width:160px;
+}
+</style>
+
+<script>
+var frameRate = 50;
+var isGameOver = false;
+function ready()
+{
+	if(!isGameOver)
+	{
+		document.getElementById("gameButton").innerHTML = "<p><strong>Click to start!</strong></p><p>The object of this game is to answer math questions correctly.</p><p>You earn points for each correct answer</p> <p>Try to earn as many points as possible</p><p>If your answer correctly watch your penguin fly!</p><p>If you are wrong then the penguin will go for a swim.</p>";
+	}
+	else
+	{
+		document.getElementById("gameButton").innerHTML = "<p><strong>GAME OVER</strong></p><p>Answer a question or read the Instructions!</p>";
+	}
+	document.getElementById("gameButton").style.marginLeft = "420px";
+	document.getElementById("gameButton").style.marginTop = "40px";
+}
+
+var x;
+var y;
+var answer;
+var operator;
+var xQuestion;
+var yQuestion;
+var clientAnswer;
+var string = "";
+var length;
+var score=0;
+
+function getScore()
+{
+        score = score+1;
+        document.blah.scoreBox.value="Score: " + score;
+}
+
+
+function inputNumber(num)
+{
+        string = string + num;
+        document.click.answerBox.value=string;
+
+}
+
+function deleteNumber()
+{
+        length = string.length-1;
+        string = string.substring(0, length);
+        document.click.answerBox.value=string;
+}
+
+
+function createAnswer()
+{
+
+        operator=Math.floor((Math.random()*4)+1);
+        
+        switch (operator)
+        {
+        case 1:
+                x=Math.round(Math.random()*20);
+                y=Math.round(Math.random()*20);
+                answer=x+y;
+                break;
+        case 2:
+                x=Math.round(Math.random()*40);
+                y=Math.round(Math.random()*40);
+                while (y>x){
+                y=Math.round(Math.random()*40);
+                }
+                answer=x-y;
+                break;
+        case 3:
+                x=Math.round(Math.random()*9);
+                y=Math.round(Math.random()*9);
+                answer=x*y;
+                break;
+        case 4:
+                x=Math.round(Math.random()*64);
+                y=Math.round(Math.random()*9);
+                while ((x/y)%1!=0)
+                {
+                x=Math.round(Math.random()*64);
+                y=Math.round(Math.random()*9);
+                }
+                answer = x/y;
+                break;
+        }
+
+        
+}
+        
+function createQuestion()
+{
+switch (operator)
+        {
+        case 1:
+                xQuestion=x;
+                yQuestion = y;
+                document.click.questionBox.value="Question: " + xQuestion+ " + " + yQuestion+ " =";
+                break;
+        case 2:
+                xQuestion=y;
+                yQuestion =x;
+                document.click.questionBox.value="Question: " + yQuestion+ " - " + xQuestion+ " =";
+                break;
+        case 3:
+                xQuestion=x;
+                yQuestion=y;
+                document.click.questionBox.value="Question: " + xQuestion+ " x " + yQuestion+ " =";
+                break;
+        case 4:
+                xQuestion=x;
+                yQuestion=y;
+                document.click.questionBox.value="Question: " + xQuestion+ " / " + yQuestion+ " =";
+                break;
+        }
+        
+
+}
+
+function checkMath()
+{
+        if(string.substring()>=1)
+        {
+                clientAnswer=parseInt(string);
+                string="";
+        }
+        else
+        {
+                clientAnswer=0;
+        }
+        if (answer===Number(clientAnswer))
+        {
+                getScore();
+                createAnswer();
+                createQuestion();
+                string = "";
+                document.click.answerBox.value=string;
+				clearInterval(id);
+				hit();
+        }
+        else 
+        {
+                createAnswer();
+                createQuestion();
+                string = "";
+                document.click.answerBox.value=string;
+				clearInterval(id);
+				miss();
+        }
+
+}
+
+
+
+
+
+
+	var a = document.createElement("img");
+	a.setAttribute("src","images/good.png");
+	var aPosX = 0;
+	var aPosY = 0;
+	var aWidth = 0;
+	var aHeight = 0;
+	
+	var b = document.createElement("div");
+	var bPosX = 0;
+	var bPosY = 0;
+	var bWidth = 0;
+	var bHeight = 0;
+	
+
+	var id;
+	var frame;
+	var frame2;
+	var count = 0;
+	
+	var aDisX = 0;
+	var aDisY = 0;
+	var aVelX = 35;
+	var aVelY = 25;
+	var aAccX = 0;
+	var aAccY = -2;
+	var count = 0;
+	
+	var aRefX = 0 + 2;
+	var aRefY = 220- 608;  //220
+	
+	aPosX = aRefX;
+	aPosY = aRefY;
+	
+	var bPosX = 810 + 2;	//850
+	var bPosY = 270 - 608; //220
+	
+function hit()
+{
+	aPosX = aRefX;
+	aPosY = aRefY;
+	a.style.marginLeft = aPosX + 'px';
+	a.style.marginTop = aPosY + 'px';
+	aDisX = 0;
+	aDisY = 0;
+	aVelX = 32; //35
+	aVelY = 25;
+	aAccX = 0;
+	aAccY = -2;
+	id = setInterval(frame,frameRate);
+}
+function miss()
+{
+	aPosX = aRefX;
+	aPosY = aRefY;
+	a.style.marginLeft = aPosX + 'px';
+	a.style.marginTop = aPosY + 'px';
+	aDisX = 0;
+	aDisY = 0;
+	aVelX = 15;
+	aVelY = 25;
+	aAccX = 0;
+	aAccY = -2;
+	id = setInterval(frame,frameRate);
+}
+function createAnimation()
+{
+
+	document.getElementById("gameButton").style.marginLeft = "-500px";
+	document.getElementById("gameButton").style.marginTop = "-500px";
+	
+	aWidth = 50;
+	aHeight = 50;
+	document.body.appendChild(a);
+	a.style.position = 'absolute';
+	a.style.width = aWidth + 'px';
+	a.style.height = aHeight + 'px';
+	a.style.marginLeft = aPosX + 'px';
+	a.style.marginTop = aPosY + 'px';
+	
+	bWidth = 100;
+	bHeight = 50;
+	document.body.appendChild(b);
+	b.style.position = 'absolute';
+	b.style.width = bWidth + 'px';
+	b.style.height = bHeight + 'px';
+	b.style.backgroundColor = '#FFFFFF';
+	b.style.marginLeft = bPosX + 'px';
+	b.style.marginTop = bPosY + 'px';
+
+	frame = function()
+	{
+		aDisX += aVelX;
+		aVelX += aAccX;
+			
+		aDisY += aVelY;
+		aVelY += aAccY;
+			
+		aPosX = aRefX + aDisX;
+		aPosY = aRefY - aDisY;
+			
+		a.style.marginLeft = aPosX + 'px';
+		a.style.marginTop = aPosY + 'px';
+	
+		var aboveB = aPosY + aHeight < bPosY;
+		var belowB = aPosY > bPosY + bHeight ;
+		var toLeftB = aPosX + aWidth < bPosX;
+		var toRightB = aPosX > bPosX + bWidth;
+		var aboveA = bPosY + bHeight < aPosY;
+		var belowA = bPosY > aPosY + aHeight ;
+		var toLeftA = bPosX + bWidth< aPosX;
+		var toRightA = bPosX > aPosX + aWidth;
+		
+		if((!aboveB&&!belowB&&!toLeftB&&!toRightB)||(!aboveA&&!belowA&&!toLeftA&&!toRightA) || aPosX > 1024 - aHeight || aPosY > 350 - 608 - aWidth)
+		{
+			clearInterval(id);
+		}	
+	}
+
+}
+</script>
