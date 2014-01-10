@@ -40,7 +40,7 @@
                                 <br>
                                 </form>
                         </div>
-						<div>
+						<div id= move>
 							 <input id = leftButton type = "button" value = "left" onmousedown = "moveLeft();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
 							<input id = rightButton type = "button" value = "right" onmousedown = "moveRight();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
                             <input id = fireButton type = "button" value = "fire" onClick = "getApples()"></input>
@@ -49,6 +49,12 @@
         </body>
 </html>
 <style>
+
+#move
+{
+		margin-left:651px;
+		margin-top:-212px;
+}
 
 #input
 {
@@ -312,11 +318,11 @@ function createQuestion()
                                 yQuestion =x;
                                 if(isLastCorrect)
 								{
-									document.click.questionBox.value="To Reload: " + xQuestion+ " + " + yQuestion+ " =";
+									document.click.questionBox.value="To Reload: " + yQuestion+ " - " + xQuestion+ " =";
 								}
 								else
 								{
-									document.click.questionBox.value="Try Again: " + xQuestion+ " + " + yQuestion+ " =";
+									document.click.questionBox.value="Try Again: " + yQuestion+ " - " + xQuestion+ " =";
 								}
                                 break;
                         case 3:
@@ -324,11 +330,11 @@ function createQuestion()
                                 yQuestion=y;
                                 if(isLastCorrect)
 								{
-									document.click.questionBox.value="To Reload: " + xQuestion+ " + " + yQuestion+ " =";
+									document.click.questionBox.value="To Reload: " + xQuestion+ " x " + yQuestion+ " =";
 								}
 								else
 								{
-									document.click.questionBox.value="Try Again: " + xQuestion+ " + " + yQuestion+ " =";
+									document.click.questionBox.value="Try Again: " + xQuestion+ " x " + yQuestion+ " =";
 								}
                                 break;
                         case 4:
@@ -336,11 +342,11 @@ function createQuestion()
                                 yQuestion=y;
                                 if(isLastCorrect)
 								{
-									document.click.questionBox.value="To Reload: " + xQuestion+ " + " + yQuestion+ " =";
+									document.click.questionBox.value="To Reload: " + xQuestion+ " / " + yQuestion+ " =";
 								}
 								else
 								{
-									document.click.questionBox.value="Try Again: " + xQuestion+ " + " + yQuestion+ " =";
+									document.click.questionBox.value="Try Again: " + xQuestion+ " / " + yQuestion+ " =";
 								}
                                 break;
                         }
@@ -530,4 +536,3 @@ function doStuff()
 }
 
 </script>
-
