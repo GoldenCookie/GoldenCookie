@@ -7,14 +7,14 @@
                                 
                                 
                           <div id= mainBox>
-						  <img id = sky src= "images\penguinBackground.JPG"></img>
-                        <a href= "Menu.html"><button id="backButton"><p>Retourne</p></button></a>
+						  <img id = sky src= "images\penguinBackground.jpg"></img>
+                        <a href= "Menu.html"><button id="backButton"><p>Back</p></button></a>
                                                 <a href= "PenguinInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
                                                 <form name = "blah" id = "rawr">
                                                 <input type= "text" name = "scoreBox" id = "meow" value="Score: 0" readonly>
                                                 </form>
 												
-						<button id = gameButton onclick = "createAnimation();"><p>Cliquez pour commencer!</strong><p><p>Ou lisez les instructions!</p></button>
+						<button id = gameButton onclick = "createAnimation();"><p><strong>Click to start!</strong><p><p>Or Read the Instructions!</p></button>
                 </div>
                 <div id = questionBox>
                                 
@@ -33,8 +33,8 @@
                                 <button class = number onClick = "inputNumber(0)">0</button>
                         </div>
                         <div>
-                                <button id = deleteButton onClick = "deleteNumber()">Effacer</button>
-                                <button id = answerButton onClick = "checkMath()">Repondre</button>
+                                <button id = deleteButton onClick = "deleteNumber()">Delete</button>
+                                <button id = answerButton onClick = "checkMath()">Answer</button>
                                                                 <form name = "click" id = "input">
                                                                 <input type="text" name = "questionBox" id = "question" value="fixed value" readonly>
                                                                 <br>
@@ -152,30 +152,31 @@
         margin-left:160px;
         position:absolute;
         height:212px;
-        width:212px;
+        width:208px;
 }
 #gameButton
 {
 		position:absolute;
-        height:80px;
+        height:300px;
         width:160px;
 }
 </style>
 
 <script>
+var frameRate = 50;
 var isGameOver = false;
 function ready()
 {
 	if(!isGameOver)
 	{
-		document.getElementById("gameButton").innerHTML = "<p><strong>Cliquez pour commencer!</strong><p><p>Ou lisez les instructions</p>";
+		document.getElementById("gameButton").innerHTML = "<p><strong>Click to start!</strong></p><p>The object of this game is to answer math questions correctly.</p><p>You earn points for each correct answer</p> <p>Try to earn as many points as possible</p><p>If your answer correctly watch your penguin fly!</p><p>If you are wrong then the penguin will go for a swim.</p>";
 	}
 	else
 	{
-		document.getElementById("gameButton").innerHTML = "<p><strong>Meilleure chance la prochaine fois!</strong><p><p>Repondre a une question ou lisez les instructions</p>";
+		document.getElementById("gameButton").innerHTML = "<p><strong>GAME OVER</strong></p><p>Answer a question or read the Instructions!</p>";
 	}
 	document.getElementById("gameButton").style.marginLeft = "420px";
-	document.getElementById("gameButton").style.marginTop = "160px";
+	document.getElementById("gameButton").style.marginTop = "40px";
 }
 
 var x;
@@ -366,7 +367,7 @@ function hit()
 	aVelY = 25;
 	aAccX = 0;
 	aAccY = -2;
-	id = setInterval(frame,25);
+	id = setInterval(frame,frameRate);
 }
 function miss()
 {
@@ -380,13 +381,13 @@ function miss()
 	aVelY = 25;
 	aAccX = 0;
 	aAccY = -2;
-	id = setInterval(frame,25);
+	id = setInterval(frame,frameRate);
 }
 function createAnimation()
 {
 
-	document.getElementById("gameButton").style.marginLeft = "-160px";
-	document.getElementById("gameButton").style.marginTop = "-160px";
+	document.getElementById("gameButton").style.marginLeft = "-500px";
+	document.getElementById("gameButton").style.marginTop = "-500px";
 	
 	aWidth = 50;
 	aHeight = 50;

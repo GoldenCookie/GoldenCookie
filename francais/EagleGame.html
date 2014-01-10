@@ -6,41 +6,41 @@
         <body onLoad = "createAnswer(), createQuestion(), ready()">
                 <div id= mainBox>
                                 <img id = sky src= "images\eagleBackground.jpg"></img>
-                                <a href= "Menu.html"><button id="backButton"><p>Retourne</p></button></a>
+                                <a href= "Menu.html"><button id="backButton"><p>Back</p></button></a>
                                 <a href= "EagleInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
                                 
-                                <button id = gameButton onclick = "doStuff();"><p>Cliquez pour commencer!</strong><p><p>Ou lisez les instructions!</p></button>        
+                                <button id = gameButton onclick = "doStuff();"><p><strong>Click to start!</strong><p><p>Or Read the Instructions!</p></button>        
                        
                 </div>
                 <div id = questionBox>
-                        <div style = "float:left">
+                        <div class= relativity>
                                 <button class = number onClick = "inputNumber(1)">1</button>
                                 <button class = number onClick = "inputNumber(2)">2</button>
                                 <button class = number onClick = "inputNumber(3)">3</button>
                                 <button class = number onClick = "inputNumber(4)">4</button>
                                 <button class = number onClick = "inputNumber(5)">5</button>
                         </div>
-                        <div style = "float:left">
+                        <div class= relativity>
                                 <button class = number onClick = "inputNumber(6)">6</button>
                                 <button class = number onClick = "inputNumber(7)">7</button>
                                 <button class = number onClick = "inputNumber(8)">8</button>
                                 <button class = number onClick = "inputNumber(9)">9</button>
                                 <button class = number onClick = "inputNumber(0)">0</button>
                         </div>
-                        <div>
-                                <button id = deleteButton onClick = "deleteNumber()">Effacer</button>
-								<button id = answerButton onClick = "checkMath()">Repondre</button>
+                        <div class = relativity input = inputKeys>
+                                <button id = deleteButton onClick = "deleteNumber()">Delete</button>
+								<button id = answerButton onClick = "checkMath()">Answer</button>
                                 
                                 
                                 <form name = "click" id = "input">
                                 <input type="text" name = "questionBox" id = "question" value="fixed value" readonly>
                                 <br>
-                <input type="text" name = "answerBox" id = "answer" value="" readonly>
+								<input type="text" name = "answerBox" id = "answer" value="" readonly>
                                 <br>
                                 </form>
                                 
-                                <input id = upButton type = "button" value = "monter" onmousedown = "moveUp();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
-								<input id = downButton type = "button" value = "descendre" onmousedown = "moveDown();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+                                <input id = upButton type = "button" value = "up" onmousedown = "moveUp();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+								<input id = downButton type = "button" value = "down" onmousedown = "moveDown();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
                         </div>
                 </div>
         </body>
@@ -59,6 +59,7 @@
         position:absolute;
         height:40px;
         width:140px;
+		margin-left:-546px;
 }
 #answer
 {
@@ -66,6 +67,7 @@
         height:40px;
         width:140px;
         margin-top:35px;
+		margin-left:-546px;
 }
 
 #sky
@@ -151,37 +153,48 @@
         position: absolute;
         margin-left:160px;
         height:106px;
-        width:212px;
+        width:208px;
 }
 #downButton
 {
         position: absolute;
         margin-left:160px;
         height:106px;
-        width:212px;
+        width:208px;
         margin-top:106px;
 }
 #gameButton
 {
 		position:absolute;
-        height:80px;
-        width:160px;
+        height:350px;
+        width:250px;
+}
+
+.relativity
+{
+	position:relative;
+}
+#inputKeys
+{
+	margin-left:546px;
+	margin-top:-212px;
 }
 </style>
 
 <script>
+var frameRate = 50;
 function ready()
 {
 	if(!isGameOver)
 	{
-		document.getElementById("gameButton").innerHTML = "<p><strong>Cliquez pour commencer!</strong><p><p>Ou lisez les instructions</p>";
+		document.getElementById("gameButton").innerHTML = "<p><strong>Click to start!</strong></p><p>The object of this game is to FLY the farthest possible</p><p>Your health determines how fast you fly. Careful it decreases with time.</p><p>Eat fish or mice to restore 100 health.</p><p>Avoid trees and gas clouds or lose 100 health</p><p>When you reach 0 health the game is over!</p><p>But you can answer a math question to start again! You can even keep your score!</p>";
 	}
 	else
 	{
-		document.getElementById("gameButton").innerHTML = "<p><strong>Meilleure chance la prochaine fois!</strong><p><p>Repondre a une question ou lisez les instructions</p>";
+		document.getElementById("gameButton").innerHTML = "<p><strong>GAME OVER</strong><p></p>To Continue: Answer a question or read the Instructions!</p>";
 	}
 	document.getElementById("gameButton").style.marginLeft = "420px";
-	document.getElementById("gameButton").style.marginTop = "160px";
+	document.getElementById("gameButton").style.marginTop = "30px";
 }
 var x;
 var y;
@@ -390,7 +403,7 @@ function moveUp()
                 eagle.disY+=10;
                 eagle.posY = eagle.refY - eagle.disY;
                 e.style.marginTop = eagle.posY + 'px';
-                animate = setTimeout(moveUp,25);
+                animate = setTimeout(moveUp,frameRate);
         }
 }
 function moveDown()
@@ -401,7 +414,7 @@ function moveDown()
                 eagle.disY-=10;
                 eagle.posY = eagle.refY - eagle.disY;
                 e.style.marginTop = eagle.posY + 'px';
-                animate = setTimeout(moveDown,25);
+                animate = setTimeout(moveDown,frameRate);
         }
 }
 function stop()
@@ -441,10 +454,10 @@ function fly()
         clearTimeout(fly);
         velX = eagle.health + 200; //pixels per second
 		distance += velX;
-        eagle.health = eagle.health*(1-eagle.depleteRate/40);
+        eagle.health = eagle.health*(1-eagle.depleteRate/(1000/frameRate));
         text.innerHTML = "Health: " + Math.round(eagle.health) + " Distance: " + Math.round(distance/1000);
-        fish.refX -= velX/40;
-		tree.refX -= velX/40;
+        fish.refX -= velX/(1000/frameRate);
+		tree.refX -= velX/(1000/frameRate);
         moveFish();
 		
         fish.posX = fish.refX + fish.disX;
@@ -484,7 +497,7 @@ function fly()
         }
         if(eagle.health > 0.5)
         {
-                frame = setTimeout(fly,25);
+                frame = setTimeout(fly,frameRate);
         }
         else
         {
@@ -511,8 +524,8 @@ function GameOver()
 }
 function doStuff()
 {
-		document.getElementById("gameButton").style.marginLeft = "-160px";
-		document.getElementById("gameButton").style.marginTop = "-160px";
+		document.getElementById("gameButton").style.marginLeft = "-500px";
+		document.getElementById("gameButton").style.marginTop = "-500px";
 		if(!isGameOver)
 		{
 			addMobile(e,eagle);
