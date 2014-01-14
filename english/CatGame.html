@@ -199,17 +199,10 @@ body
 
 <script>
 var frameRate = 75;
-var isGameOver = false;
+var isGameOver = true;
 function ready()
 {
-	if(!isGameOver)
-	{
-		document.getElementById("gameButton").innerHTML = "<p><strong>Click to start!</strong></p><p>The object of this game is to drop apples on the mouse below</P><p>To earn apples you need to answer math questions properly.</P><p>You get 4 apples for each correct answer</P><p>Try to time your shots to hit the mouse</P><p>You get 10 points for hitting the rat</P>";
-	}
-	else
-	{
-		document.getElementById("gameButton").innerHTML = "<p><strong>GAME OVER</strong><p></p>Answer a question or read the Instructions!</p>";
-	}
+	document.getElementById("gameButton").innerHTML = "<p><strong>Click to start!</strong></p><p>The object of this game is to drop apples on the mouse below</P><p>To earn apples you need to answer math questions properly.</P><p>You get 4 apples for each correct answer</P><p>Try to time your shots to hit the mouse</P><p>You get 10 points for hitting the rat</P>";
 	document.getElementById("gameButton").style.marginLeft = "420px";
 	document.getElementById("gameButton").style.marginTop = "30px";
 }
@@ -361,6 +354,8 @@ function createQuestion()
 var isLastCorrect = true;
 function checkMath()
 {
+	if(!isGameOver)
+	{
         if(string.substring()>=1)
         {
                 clientAnswer=parseInt(string);
@@ -388,7 +383,7 @@ function checkMath()
                 document.click.answerBox.value=string;
 				isLastCorrect = false;
         }
-
+	}
 }
 
 var c = document.createElement("img");
@@ -532,6 +527,7 @@ function points()
 }
 function doStuff()
 {
+		isGameOver = false;
 		document.getElementById("gameButton").style.marginLeft = "-160px";
 		document.getElementById("gameButton").style.marginTop = "-160px";
        addMobile(c,cat);
