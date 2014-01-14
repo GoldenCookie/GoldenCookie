@@ -2,6 +2,7 @@
 <html>
         <head>
                 <title>Eagle Game</title>
+				<meta name="viewport" id="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no" />
         </head>
         <body onLoad = "createAnswer(), createQuestion(), ready()">
                 <div id= mainBox>
@@ -35,18 +36,24 @@
                                 <form name = "click" id = "input">
                                 <input type="text" name = "questionBox" id = "question" value="fixed value" readonly>
                                 <br>
-                <input type="text" name = "answerBox" id = "answer" value="" readonly>
+								<input type="text" name = "answerBox" id = "answer" value="" readonly>
                                 <br>
                                 </form>
-                                <div id = move>
+							<div id = move>
                                 <input id = upButton type = "button" value = "up" onmousedown = "moveUp();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
 								<input id = downButton type = "button" value = "down" onmousedown = "moveDown();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
-								</div>
+							</div>
 					   </div>
                 </div>
         </body>
 </html>
 <style>
+
+body
+{
+	height:595px;
+	width:1020px;
+}
 
 #move
 {

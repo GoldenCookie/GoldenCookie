@@ -2,6 +2,7 @@
 <html>
         <head>
                 <title>Cat Game</title>
+			    <meta name="viewport" id="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no" /> 
         </head>
          <body onLoad = "createAnswer(), createQuestion(), ready()">
                 <div id= mainBox>
@@ -15,44 +16,50 @@
 						<button id = gameButton onclick = "doStuff();"><p><strong>Click to start!</strong><p><p>Or Read the Instructions!</p></button>
                 </div>
                 <div id = questionBox>
-                        <div class = relativity>
+                        <div style = "float:left">
                                 <button class = number onClick = "inputNumber(1)">1</button>
                                 <button class = number onClick = "inputNumber(2)">2</button>
                                 <button class = number onClick = "inputNumber(3)">3</button>
                                 <button class = number onClick = "inputNumber(4)">4</button>
                                 <button class = number onClick = "inputNumber(5)">5</button>
                         </div>
-                        <div class = relativity>
+                        <div style = "float:left">
                                 <button class = number onClick = "inputNumber(6)">6</button>
                                 <button class = number onClick = "inputNumber(7)">7</button>
                                 <button class = number onClick = "inputNumber(8)">8</button>
                                 <button class = number onClick = "inputNumber(9)">9</button>
                                 <button class = number onClick = "inputNumber(0)">0</button>
                         </div>
-                        <div class = relativity id = inputKeys>
+                        <div>
                                 <button id = deleteButton onClick = "deleteNumber()">Delete</button>
-								<button id = answerButton onClick = "checkMath()">Answer</button>
-                                
-                                <form name = "click" id = "input">
-                                <input type="text" name = "questionBox" id = "question" value="" readonly>
-                                <br>
+                                <button id = answerButton onClick = "checkMath()">Answer</button>
+								<form name = "click" id = "input">
+								<input type="text" name = "questionBox" id = "question" value="fixed value" readonly>
+								<br>
 								<input type="text" name = "answerBox" id = "answer" value="" readonly>
-                                <br>
-                                </form>
-                        </div>
-						<div id= move>
-							 <input id = leftButton type = "button" value = "left" onmousedown = "moveLeft();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
-							<input id = rightButton type = "button" value = "right" onmousedown = "moveRight();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
-                            <input id = fireButton type = "button" value = "fire" onClick = "getApples()"></input>
+								<br>
+								</form>
+							<div id= move>
+								<input id = leftButton type = "button" value = "left" onmousedown = "moveLeft();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+								<input id = rightButton type = "button" value = "right" onmousedown = "moveRight();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+								<input id = fireButton type = "button" value = "fire" onClick = "getApples()"></input>
+							</div>
 						</div>
                 </div>
         </body>
 </html>
 <style>
 
+body
+{
+	height:595px;
+	width:1020px;
+}
+
+
 #move
 {
-		margin-left:651px;
+		margin-left:652px;
 		margin-top:-212px;
 }
 
@@ -68,7 +75,6 @@
         position:absolute;
         height:40px;
         width:140px;
-		margin-left:-546px;
 }
 #answer
 {
@@ -76,7 +82,6 @@
         height:40px;
         width:140px;
         margin-top:35px;
-		margin-left:-546px;
 }
 #sky
 {
@@ -187,8 +192,8 @@
 }
 #inputKeys
 {
-	margin-left:546px;
-	margin-top:-212px;
+	margin-top: -212px;
+	margin-left:548px;
 }
 </style>
 
