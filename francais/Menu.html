@@ -2,6 +2,7 @@
 <html>
         <head>
                 <title>3 Musketeers</title>
+			    <meta name="viewport" id="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no" />
         </head>
         <body>
                 <div id = mainBox>
@@ -14,13 +15,17 @@
                                 <a href= "CatGame.html"><button id="catIcon"><p>Cat</p></button></a>
                         </div>
                         <div id="optionsBox">
-                                <a href ="HighScores.html"><button id="highscoreBox"><p>Highscore</p></button></a>
                                 <a href="Instructions.html"><button id="helpBox"><p>Help</p></button></a>
                         </div>
                 </div>
         </body>
 </html>
 <style>
+body
+{
+	height:595px;
+	width:1020px;
+}
 #mainBox
 {
         height:600px;
@@ -52,7 +57,8 @@
 {
         height:100px;
         width:1024px;
-	background-color: #0099FF;
+		background-color: #0099FF;
+		font-size:30px;
 }        
 #highscoreBox
 {
@@ -65,7 +71,7 @@
 {
         background-color: #FFEF3D;
         height:80px;
-	width:510px;
+	width:1020px;
 	font-size:20px;
 }
 /*This allows all the buttons for the games to be edited at once*/

@@ -436,20 +436,30 @@ function changePrey()
 		f.setAttribute("src","images/fish.png");
 		prey = true;
 	}
+	fish.posX = fish.refX + fish.disX;
+	fish.posY = fish.refY - fish.disY;
+	f.style.marginLeft = fish.posX + "px";
+	f.style.marginTop = fish.posY + "px";
 }
 function changeTree()
 {
 	var c = Math.random();
+	var img;
 	if (c > 0.5)
 	{
 		tree.refY = 64 - 600;
-		t.setAttribute("src","images/gas.png");
+		img = "gas";
 	}
 	else
-	{
+	{	
 		tree.refY = 226 - 600;
-		t.setAttribute("src","images/tree.png");
+		img = "tree";
 	}
+	tree.posX = tree.refX + tree.disX;
+    tree.posY = tree.refY - tree.disY;
+    t.style.marginLeft = tree.posX + "px";
+    t.style.marginTop = tree.posY + "px";
+	t.setAttribute("src","images/" + img + ".png");
 }
 function fly()
 {

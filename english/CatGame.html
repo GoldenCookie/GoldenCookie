@@ -368,20 +368,21 @@ function checkMath()
         
         if (answer===Number(clientAnswer))
         {
+				isLastCorrect = true;
                 refillApples();
                 createAnswer();
                 createQuestion();
                 string = "";
                 document.click.answerBox.value=string;
-				isLastCorrect = true;
+				
         }
         else 
         {
+				isLastCorrect = false;
                 createAnswer();
                 createQuestion();
                 string = "";
                 document.click.answerBox.value=string;
-				isLastCorrect = false;
         }
 	}
 }

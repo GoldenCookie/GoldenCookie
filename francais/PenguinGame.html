@@ -2,6 +2,7 @@
 <html>
         <head>
                 <title>Penguin Game</title>
+				<meta name="viewport" id="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no" />
         </head>
         <body onLoad = "createAnswer(), createQuestion(), ready()">
                                 
@@ -9,7 +10,7 @@
                           <div id= mainBox>
 						  <img id = sky src= "images\penguinBackground.jpg"></img>
                         <a href= "Menu.html"><button id="backButton"><p>Back</p></button></a>
-                                                <a href= "PenguinInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
+                                                
                                                 <form name = "blah" id = "rawr">
                                                 <input type= "text" name = "scoreBox" id = "meow" value="Score: 0" readonly>
                                                 </form>
@@ -35,19 +36,34 @@
                         <div>
                                 <button id = deleteButton onClick = "deleteNumber()">Delete</button>
                                 <button id = answerButton onClick = "checkMath()">Answer</button>
-                                                                <form name = "click" id = "input">
-                                                                <input type="text" name = "questionBox" id = "question" value="fixed value" readonly>
-                                                                <br>
-                                                                <input type="text" name = "answerBox" id = "answer" value="" readonly>
-                                                                <br>
-                                                                </form>
-                                <img id = penguin src= "images\penguin.jpg"></img>
+								<form name = "click" id = "input">
+								<input type="text" name = "questionBox" id = "question" value="fixed value" readonly>
+								<br>
+								<input type="text" name = "answerBox" id = "answer" value="" readonly>
+								<br>
+								</form>
+								<div id= move>
+									<img id = penguin src= "images\penguin.jpg"></img>
+								</div>
                         </div>
                 </div>
                                 
         </body>
 </html>
 <style>
+
+body
+{
+	height:595px;
+	width:1020px;
+}
+
+#move
+{
+		margin-left:651px;
+		margin-top:-212px;
+}
+
 #meow
 {
 	width:70px;
@@ -165,6 +181,7 @@
 <script>
 var frameRate = 50;
 var isGameOver = false;
+var isGameStarted = false;
 function ready()
 {
 	if(!isGameOver)
@@ -173,7 +190,7 @@ function ready()
 	}
 	else
 	{
-		document.getElementById("gameButton").innerHTML = "<p><strong>GAME OVER</strong></p><p>Answer a question or read the Instructions!</p>";
+		document.getElementById("gameButton").innerHTML = "<p><strong>GAME OVER</strong></p><p>Click to restart</p>";
 	}
 	document.getElementById("gameButton").style.marginLeft = "420px";
 	document.getElementById("gameButton").style.marginTop = "40px";
@@ -192,8 +209,11 @@ var score=0;
 
 function getScore()
 {
-        score = score+1;
+    if(!isGameOver)
+	{
+		score = score+1;
         document.blah.scoreBox.value="Score: " + score;
+	}
 }
 
 
@@ -283,6 +303,9 @@ switch (operator)
 
 function checkMath()
 {
+	if(isGameStarted&&!isGameOver)
+	{	
+		isGameStarted = false;
         if(string.substring()>=1)
         {
                 clientAnswer=parseInt(string);
@@ -310,8 +333,10 @@ function checkMath()
                 document.click.answerBox.value=string;
 				clearInterval(id);
 				miss();
+				
+				
         }
-
+	}
 }
 
 
@@ -385,7 +410,9 @@ function miss()
 }
 function createAnimation()
 {
-
+	isGameOver = false;
+	isGameStarted = true;
+	
 	document.getElementById("gameButton").style.marginLeft = "-500px";
 	document.getElementById("gameButton").style.marginTop = "-500px";
 	
@@ -404,37 +431,51 @@ function createAnimation()
 	b.style.position = 'absolute';
 	b.style.width = bWidth + 'px';
 	b.style.height = bHeight + 'px';
-	b.style.backgroundColor = '#FFFFFF';
 	b.style.marginLeft = bPosX + 'px';
 	b.style.marginTop = bPosY + 'px';
 
 	frame = function()
 	{
-		aDisX += aVelX;
-		aVelX += aAccX;
-			
-		aDisY += aVelY;
-		aVelY += aAccY;
-			
-		aPosX = aRefX + aDisX;
-		aPosY = aRefY - aDisY;
-			
-		a.style.marginLeft = aPosX + 'px';
-		a.style.marginTop = aPosY + 'px';
-	
-		var aboveB = aPosY + aHeight < bPosY;
-		var belowB = aPosY > bPosY + bHeight ;
-		var toLeftB = aPosX + aWidth < bPosX;
-		var toRightB = aPosX > bPosX + bWidth;
-		var aboveA = bPosY + bHeight < aPosY;
-		var belowA = bPosY > aPosY + aHeight ;
-		var toLeftA = bPosX + bWidth< aPosX;
-		var toRightA = bPosX > aPosX + aWidth;
-		
-		if((!aboveB&&!belowB&&!toLeftB&&!toRightB)||(!aboveA&&!belowA&&!toLeftA&&!toRightA) || aPosX > 1024 - aHeight || aPosY > 350 - 608 - aWidth)
+		if(!isGameOver)
 		{
-			clearInterval(id);
-		}	
+			aDisX += aVelX;
+			aVelX += aAccX;
+				
+			aDisY += aVelY;
+			aVelY += aAccY;
+				
+			aPosX = aRefX + aDisX;
+			aPosY = aRefY - aDisY;
+				
+			a.style.marginLeft = aPosX + 'px';
+			a.style.marginTop = aPosY + 'px';
+		
+			var aboveB = aPosY + aHeight < bPosY;
+			var belowB = aPosY > bPosY + bHeight ;
+			var toLeftB = aPosX + aWidth < bPosX;
+			var toRightB = aPosX > bPosX + bWidth;
+			var aboveA = bPosY + bHeight < aPosY;
+			var belowA = bPosY > aPosY + aHeight ;
+			var toLeftA = bPosX + bWidth< aPosX;
+			var toRightA = bPosX > aPosX + aWidth;
+			
+			if((!aboveB&&!belowB&&!toLeftB&&!toRightB)||(!aboveA&&!belowA&&!toLeftA&&!toRightA) || aPosX > 1024 - aWidth || aPosY > 350 - 608 - aHeight)
+			{
+				clearInterval(id);
+				isGameStarted = true;
+				if(aPosY > 350 - 608 - aHeight)
+				{
+					aPosX = aRefX;
+					aPosY = aRefY;
+					a.style.marginLeft = aPosX + 'px';
+					a.style.marginTop = aPosY + 'px';
+					isGameOver=true;
+					score=0;
+					document.blah.scoreBox.value="Score: " + score;
+					ready();
+				}
+			}
+		}
 	}
 
 }

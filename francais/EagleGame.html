@@ -2,32 +2,33 @@
 <html>
         <head>
                 <title>Eagle Game</title>
+				<meta name="viewport" id="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no" />
         </head>
         <body onLoad = "createAnswer(), createQuestion(), ready()">
                 <div id= mainBox>
                                 <img id = sky src= "images\eagleBackground.jpg"></img>
                                 <a href= "Menu.html"><button id="backButton"><p>Back</p></button></a>
-                                <a href= "EagleInstructions.html"><button id ="instructionButton"><p>Instructions</p></button></a>
+                                
                                 
                                 <button id = gameButton onclick = "doStuff();"><p><strong>Click to start!</strong><p><p>Or Read the Instructions!</p></button>        
                        
                 </div>
                 <div id = questionBox>
-                        <div class= relativity>
+                        <div style = "float:left">
                                 <button class = number onClick = "inputNumber(1)">1</button>
                                 <button class = number onClick = "inputNumber(2)">2</button>
                                 <button class = number onClick = "inputNumber(3)">3</button>
                                 <button class = number onClick = "inputNumber(4)">4</button>
                                 <button class = number onClick = "inputNumber(5)">5</button>
                         </div>
-                        <div class= relativity>
+                        <div style = "float:left">
                                 <button class = number onClick = "inputNumber(6)">6</button>
                                 <button class = number onClick = "inputNumber(7)">7</button>
                                 <button class = number onClick = "inputNumber(8)">8</button>
                                 <button class = number onClick = "inputNumber(9)">9</button>
                                 <button class = number onClick = "inputNumber(0)">0</button>
                         </div>
-                        <div class = relativity input = inputKeys>
+                        <div>
                                 <button id = deleteButton onClick = "deleteNumber()">Delete</button>
 								<button id = answerButton onClick = "checkMath()">Answer</button>
                                 
@@ -38,14 +39,27 @@
 								<input type="text" name = "answerBox" id = "answer" value="" readonly>
                                 <br>
                                 </form>
-                                
+							<div id = move>
                                 <input id = upButton type = "button" value = "up" onmousedown = "moveUp();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
 								<input id = downButton type = "button" value = "down" onmousedown = "moveDown();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
-                        </div>
+							</div>
+					   </div>
                 </div>
         </body>
 </html>
 <style>
+
+body
+{
+	height:595px;
+	width:1020px;
+}
+
+#move
+{
+		margin-left:651px;
+		margin-top:-212px;
+}
 
 #input
 {
@@ -59,7 +73,6 @@
         position:absolute;
         height:40px;
         width:140px;
-		margin-left:-546px;
 }
 #answer
 {
@@ -67,7 +80,6 @@
         height:40px;
         width:140px;
         margin-top:35px;
-		margin-left:-546px;
 }
 
 #sky
@@ -169,16 +181,6 @@
         height:350px;
         width:250px;
 }
-
-.relativity
-{
-	position:relative;
-}
-#inputKeys
-{
-	margin-left:546px;
-	margin-top:-212px;
-}
 </style>
 
 <script>
@@ -259,30 +261,30 @@ function createAnswer()
         }
 
 }
-        
+var isLastCorrect = true; 
 function createQuestion()
 {
-switch (operator)
+	switch (operator)
         {
         case 1:
                 xQuestion=x;
                 yQuestion = y;
-                document.click.questionBox.value="Question: " + xQuestion+ " + " + yQuestion+ " ="; 
+                document.click.questionBox.value="Question: " + xQuestion+ " + " + yQuestion+ " =";
                 break;
         case 2:
                 xQuestion=y;
                 yQuestion =x;
-                document.click.questionBox.value="Question: " + yQuestion+ " - " + xQuestion+ " ="; 
+                document.click.questionBox.value="Question: " + yQuestion+ " - " + xQuestion+ " =";
                 break;
         case 3:
                 xQuestion=x;
                 yQuestion=y;
-                document.click.questionBox.value="Question: " + xQuestion+ " x " + yQuestion+ " ="; 
+                document.click.questionBox.value="Question: " + xQuestion+ " x " + yQuestion+ " =";
                 break;
         case 4:
                 xQuestion=x;
                 yQuestion=y;
-                document.click.questionBox.value="Question: " + xQuestion+ " / " + yQuestion+ " ="; 
+                document.click.questionBox.value="Question: " + xQuestion+ " / " + yQuestion+ " =";
                 break;
         }
         
@@ -434,20 +436,30 @@ function changePrey()
 		f.setAttribute("src","images/fish.png");
 		prey = true;
 	}
+	fish.posX = fish.refX + fish.disX;
+	fish.posY = fish.refY - fish.disY;
+	f.style.marginLeft = fish.posX + "px";
+	f.style.marginTop = fish.posY + "px";
 }
 function changeTree()
 {
 	var c = Math.random();
+	var img;
 	if (c > 0.5)
 	{
 		tree.refY = 64 - 600;
-		t.setAttribute("src","images/gas.png");
+		img = "gas";
 	}
 	else
-	{
+	{	
 		tree.refY = 226 - 600;
-		t.setAttribute("src","images/tree.png");
+		img = "tree";
 	}
+	tree.posX = tree.refX + tree.disX;
+    tree.posY = tree.refY - tree.disY;
+    t.style.marginLeft = tree.posX + "px";
+    t.style.marginTop = tree.posY + "px";
+	t.setAttribute("src","images/" + img + ".png");
 }
 function fly()
 {

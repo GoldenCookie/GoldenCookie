@@ -2,6 +2,7 @@
 <html>
         <head>
                 <title>Cat Game</title>
+			    <meta name="viewport" id="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no" /> 
         </head>
          <body onLoad = "createAnswer(), createQuestion(), ready()">
                 <div id= mainBox>
@@ -15,40 +16,52 @@
 						<button id = gameButton onclick = "doStuff();"><p><strong>Click to start!</strong><p><p>Or Read the Instructions!</p></button>
                 </div>
                 <div id = questionBox>
-                        <div class = relativity>
+                        <div style = "float:left">
                                 <button class = number onClick = "inputNumber(1)">1</button>
                                 <button class = number onClick = "inputNumber(2)">2</button>
                                 <button class = number onClick = "inputNumber(3)">3</button>
                                 <button class = number onClick = "inputNumber(4)">4</button>
                                 <button class = number onClick = "inputNumber(5)">5</button>
                         </div>
-                        <div class = relativity>
+                        <div style = "float:left">
                                 <button class = number onClick = "inputNumber(6)">6</button>
                                 <button class = number onClick = "inputNumber(7)">7</button>
                                 <button class = number onClick = "inputNumber(8)">8</button>
                                 <button class = number onClick = "inputNumber(9)">9</button>
                                 <button class = number onClick = "inputNumber(0)">0</button>
                         </div>
-                        <div class = relativity id = inputKeys>
+                        <div>
                                 <button id = deleteButton onClick = "deleteNumber()">Delete</button>
-								<button id = answerButton onClick = "checkMath()">Answer</button>
-                                
-                                <form name = "click" id = "input">
-                                <input type="text" name = "questionBox" id = "question" value="" readonly>
-                                <br>
+                                <button id = answerButton onClick = "checkMath()">Answer</button>
+								<form name = "click" id = "input">
+								<input type="text" name = "questionBox" id = "question" value="fixed value" readonly>
+								<br>
 								<input type="text" name = "answerBox" id = "answer" value="" readonly>
-                                <br>
-                                </form>
-                        </div>
-						<div>
-							 <input id = leftButton type = "button" value = "left" onmousedown = "moveLeft();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
-							<input id = rightButton type = "button" value = "right" onmousedown = "moveRight();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
-                            <input id = fireButton type = "button" value = "fire" onClick = "getApples()"></input>
+								<br>
+								</form>
+							<div id= move>
+								<input id = leftButton type = "button" value = "left" onmousedown = "moveLeft();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+								<input id = rightButton type = "button" value = "right" onmousedown = "moveRight();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+								<input id = fireButton type = "button" value = "fire" onClick = "getApples()"></input>
+							</div>
 						</div>
                 </div>
         </body>
 </html>
 <style>
+
+body
+{
+	height:595px;
+	width:1020px;
+}
+
+
+#move
+{
+		margin-left:652px;
+		margin-top:-212px;
+}
 
 #input
 {
@@ -62,7 +75,6 @@
         position:absolute;
         height:40px;
         width:140px;
-		margin-left:-546px;
 }
 #answer
 {
@@ -70,7 +82,6 @@
         height:40px;
         width:140px;
         margin-top:35px;
-		margin-left:-546px;
 }
 #sky
 {
@@ -181,24 +192,17 @@
 }
 #inputKeys
 {
-	margin-left:546px;
-	margin-top:-212px;
+	margin-top: -212px;
+	margin-left:548px;
 }
 </style>
 
 <script>
 var frameRate = 75;
-var isGameOver = false;
+var isGameOver = true;
 function ready()
 {
-	if(!isGameOver)
-	{
-		document.getElementById("gameButton").innerHTML = "<p><strong>Click to start!</strong></p><p>The object of this game is to drop apples on the mouse below</P><p>To earn apples you need to answer math questions properly.</P><p>You get 4 apples for each correct answer</P><p>Try to time your shots to hit the mouse</P><p>You get 10 points for hitting the rat</P>";
-	}
-	else
-	{
-		document.getElementById("gameButton").innerHTML = "<p><strong>GAME OVER</strong><p></p>Answer a question or read the Instructions!</p>";
-	}
+	document.getElementById("gameButton").innerHTML = "<p><strong>Click to start!</strong></p><p>The object of this game is to drop apples on the mouse below</P><p>To earn apples you need to answer math questions properly.</P><p>You get 4 apples for each correct answer</P><p>Try to time your shots to hit the mouse</P><p>You get 10 points for hitting the rat</P>";
 	document.getElementById("gameButton").style.marginLeft = "420px";
 	document.getElementById("gameButton").style.marginTop = "30px";
 }
@@ -312,11 +316,11 @@ function createQuestion()
                                 yQuestion =x;
                                 if(isLastCorrect)
 								{
-									document.click.questionBox.value="To Reload: " + xQuestion+ " + " + yQuestion+ " =";
+									document.click.questionBox.value="To Reload: " + yQuestion+ " - " + xQuestion+ " =";
 								}
 								else
 								{
-									document.click.questionBox.value="Try Again: " + xQuestion+ " + " + yQuestion+ " =";
+									document.click.questionBox.value="Try Again: " + yQuestion+ " - " + xQuestion+ " =";
 								}
                                 break;
                         case 3:
@@ -324,11 +328,11 @@ function createQuestion()
                                 yQuestion=y;
                                 if(isLastCorrect)
 								{
-									document.click.questionBox.value="To Reload: " + xQuestion+ " + " + yQuestion+ " =";
+									document.click.questionBox.value="To Reload: " + xQuestion+ " x " + yQuestion+ " =";
 								}
 								else
 								{
-									document.click.questionBox.value="Try Again: " + xQuestion+ " + " + yQuestion+ " =";
+									document.click.questionBox.value="Try Again: " + xQuestion+ " x " + yQuestion+ " =";
 								}
                                 break;
                         case 4:
@@ -336,11 +340,11 @@ function createQuestion()
                                 yQuestion=y;
                                 if(isLastCorrect)
 								{
-									document.click.questionBox.value="To Reload: " + xQuestion+ " + " + yQuestion+ " =";
+									document.click.questionBox.value="To Reload: " + xQuestion+ " / " + yQuestion+ " =";
 								}
 								else
 								{
-									document.click.questionBox.value="Try Again: " + xQuestion+ " + " + yQuestion+ " =";
+									document.click.questionBox.value="Try Again: " + xQuestion+ " / " + yQuestion+ " =";
 								}
                                 break;
                         }
@@ -350,6 +354,8 @@ function createQuestion()
 var isLastCorrect = true;
 function checkMath()
 {
+	if(!isGameOver)
+	{
         if(string.substring()>=1)
         {
                 clientAnswer=parseInt(string);
@@ -362,22 +368,23 @@ function checkMath()
         
         if (answer===Number(clientAnswer))
         {
+				isLastCorrect = true;
                 refillApples();
                 createAnswer();
                 createQuestion();
                 string = "";
                 document.click.answerBox.value=string;
-				isLastCorrect = true;
+				
         }
         else 
         {
+				isLastCorrect = false;
                 createAnswer();
                 createQuestion();
                 string = "";
                 document.click.answerBox.value=string;
-				isLastCorrect = false;
         }
-
+	}
 }
 
 var c = document.createElement("img");
@@ -521,6 +528,7 @@ function points()
 }
 function doStuff()
 {
+		isGameOver = false;
 		document.getElementById("gameButton").style.marginLeft = "-160px";
 		document.getElementById("gameButton").style.marginTop = "-160px";
        addMobile(c,cat);
@@ -530,4 +538,3 @@ function doStuff()
 }
 
 </script>
-
