@@ -180,7 +180,7 @@ function ready()
 {
 	if(!isGameOver)
 	{
-		document.getElementById("gameButton").innerHTML = "<p><strong>Click to start!</strong></p><p>The object of this game is to answer math questions correctly.</p><p>You earn points for each correct answer</p> <p>Try to earn as many points as possible</p><p>If your answer correctly watch your penguin fly!</p><p>If you are wrong then the penguin will go for a swim.</p>";
+		document.getElementById("gameButton").innerHTML = "<p>The object of this game is to answer math questions correctly.</p><p>You earn points for each correct answer</p> <p>Try to earn as many points as possible</p><p>If your answer correctly watch your penguin fly!</p><p>If you are wrong then the penguin will go for a swim.</p><p><strong>Click to start!</strong></p>";
 	}
 	else
 	{
@@ -472,5 +472,9 @@ function createAnimation()
 		}
 	}
 
+}
+document.ontouchstart = function(event) 
+{
+   event.preventDefault();
 }
 </script>

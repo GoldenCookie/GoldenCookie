@@ -54,8 +54,8 @@
 
 body
 {
-	height:595px;
-	width:1020px;
+	height:596px;
+	width:1016px;
 }
 
 #move
@@ -79,9 +79,7 @@ body
 {
 	position:absolute;
 	height:388px;
-	width:1024px;
-	border: 2px solid #000000;
-	border-radius: 4px;
+	width:1016px;
 
 
 }
@@ -111,9 +109,7 @@ body
 {
     background-color:#80dfff;
 	height:388px;
-	width:1024px;
-	border: 2px solid #000000;
-	border-radius: 4px;
+	width:1016px;
 	margin-left:-8px;
 	margin-top:-8px;
 	z-index:-1;
@@ -122,9 +118,7 @@ body
 {
         background-color:#aaaaaa;
         height:212px;
-        width:1024px;
-        border: 2px solid #000000;
-        border-radius: 4px;
+        width:1016px;
 		margin-left:-8px;
 }
 .number
@@ -186,7 +180,7 @@ function ready()
 {
 	if(!isGameOver)
 	{
-		document.getElementById("gameButton").innerHTML = "<p><strong>Click to start!</strong></p><p>The object of this game is to answer math questions correctly.</p><p>You earn points for each correct answer</p> <p>Try to earn as many points as possible</p><p>If your answer correctly watch your penguin fly!</p><p>If you are wrong then the penguin will go for a swim.</p>";
+		document.getElementById("gameButton").innerHTML = "<p>The object of this game is to answer math questions correctly.</p><p>You earn points for each correct answer</p> <p>Try to earn as many points as possible</p><p>If your answer correctly watch your penguin fly!</p><p>If you are wrong then the penguin will go for a swim.</p><p><strong>Click to start!</strong></p>";
 	}
 	else
 	{
@@ -478,5 +472,9 @@ function createAnimation()
 		}
 	}
 
+}
+document.ontouchstart = function(event) 
+{
+   event.preventDefault();
 }
 </script>

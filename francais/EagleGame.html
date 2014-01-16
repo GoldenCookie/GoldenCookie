@@ -51,13 +51,13 @@
 
 body
 {
-	height:595px;
-	width:1020px;
+	height:596px;
+	width:1016px;
 }
 
 #move
 {
-		margin-left:651px;
+		margin-left:652px;
 		margin-top:-212px;
 }
 
@@ -86,9 +86,7 @@ body
 {
         position:absolute;
         height:388px;
-        width:1024px;
-        border: 2px solid #000000;
-        border-radius: 4px;
+        width:1020px;
 
 }
 
@@ -96,9 +94,7 @@ body
 {
         background-color:#80dfff;
         height:388px;
-        width:1024px;
-        border: 2px solid #000000;
-        border-radius: 4px;
+        width:1020px;
         margin-left:-8px;
         margin-top:-8px;
 
@@ -107,9 +103,7 @@ body
 {
         background-color:#aaaaaa;
         height:212px;
-        width:1024px;
-        border: 2px solid #000000;
-        border-radius: 4px;
+        width:1020px;
         margin-left:-8px;
 }
 .number
@@ -179,7 +173,7 @@ body
 {
 		position:absolute;
         height:350px;
-        width:250px;
+        width:300px;
 }
 </style>
 
@@ -189,13 +183,13 @@ function ready()
 {
 	if(!isGameOver)
 	{
-		document.getElementById("gameButton").innerHTML = "<p><strong>Click to start!</strong></p><p>The object of this game is to FLY the farthest possible</p><p>Your health determines how fast you fly. Careful it decreases with time.</p><p>Eat fish or mice to restore 100 health.</p><p>Avoid trees and gas clouds or lose 100 health</p><p>When you reach 0 health the game is over!</p><p>But you can answer a math question to start again! You can even keep your score!</p>";
+		document.getElementById("gameButton").innerHTML = "<p>The object of this game is to FLY the farthest possible</p><p>Your health will drop as you fly farther</p><p><strong>Controls: Use [Up] and [Down] keys on the bottom right to control your Eagle</strong></p><p>Eating fish or mice restores health!</p><p>Hitting Trees or Gas Clouds decrease your health!</p><p>When you reach 0 health the game is over!</p><p>But you can answer a math question to start again! You can even keep your score!</p><p>You <strong>DO NOT</strong> need to answer math questions during flight</p><p><strong>Click to start!</strong></p>";
 	}
 	else
 	{
 		document.getElementById("gameButton").innerHTML = "<p><strong>GAME OVER</strong><p></p>To Continue: Answer a question or read the Instructions!</p>";
 	}
-	document.getElementById("gameButton").style.marginLeft = "420px";
+	document.getElementById("gameButton").style.marginLeft = "390px";
 	document.getElementById("gameButton").style.marginTop = "30px";
 }
 var x;
@@ -570,6 +564,9 @@ function flap()
 	}
 	
 }
-
+document.ontouchstart = function(event) 
+{
+   event.preventDefault();
+}
 
 </script>

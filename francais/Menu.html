@@ -24,63 +24,54 @@
 body
 {
 	height:595px;
-	width:1020px;
+	width:1008px;
 }
 #mainBox
 {
-        height:600px;
-        width:1024px;
+        height:596px;
+        width:1000px;
         margin-top:-8px;
-        margin-left:-8px;
 }
 #titleBox
 {
         background-color: #FFFFFF;
-        height:100px;
-        width:1024px;
-        margin-left:-8px;
+        height:96px;
+        width:1000px;
 }
 #title
 {
         font-size: 50px;
         color: #000000;
-	text-align:center;
+		text-align:center;
 }
 #iconBox
 {
-        height: 400px;
-        width: 1024px;
+        height: 396px;
+        width: 1000px;
         background-color:#0099FF;
         clear:both;
 }
 #optionsBox
 {
-        height:100px;
-        width:1024px;
+        height:96px;
+        width:1000px;
 		background-color: #0099FF;
 		font-size:30px;
 }        
-#highscoreBox
-{
-        background-color: #FFEF3D;
-        height:80px;
-	width:510px;
-	font-size:20px;
-}
 #helpBox
 {
         background-color: #FFEF3D;
         height:80px;
-	width:1020px;
-	font-size:20px;
+		width:1000px;
+		font-size:20px;
 }
 /*This allows all the buttons for the games to be edited at once*/
 #iconBox button
 {
         font-size:30px;
         background-color: #FFEF3D;
-        height:100px;
-        width:1024px;
+        height:96px;
+        width:1000px;
         align:center;
         margin-top: 25px;
                 
@@ -101,3 +92,9 @@ body
         clear:both;
 }
 </style>
+<script>
+document.ontouchstart = function(event) 
+{
+   event.preventDefault();
+}
+</script>
